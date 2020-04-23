@@ -77,30 +77,34 @@ function ftTimeTableSetup() {
 
     //convert times
     for (let i in events) {
-        let time;
+        let time, h, m;
         if (events[i].server == "na") {
-            time = events[i].time - naToLocal;
+            time = (events[i].time * 60) - naToLocal;
         } else {
-            time = events[i].time - jpToLocal;
+            time = (events[i].time * 60) - jpToLocal;
         }
-        if (time < 0) time += 24;
-        if (time > 23) time -= 24;
-        events[i].localTime = time;
+        if (time < 0) time += 1440;
+        if (time > 1439) time -= 1440;
+        h = 0| time / 60;
+        m = String(time - (h * 60)).padStart(2, "0");
+        h = String(h).padStart(2, "0");
+        events[i].localTime = h+":"+m;
+        events[i].sortTime = Number(h+m);
     }
 
     //sort by local Time
     events.sort(function(a, b){
-        return a.localTime - b.localTime;
+        return a.sortTime - b.sortTime;
     })
 
     //create table
     for (let event of events) {
         let tr = $("<tr/>").attr("data-server", event.server),
-            localTime = String(event.localTime).padStart(2, '0'),
+            localTime = event.localTime,
             time = String(event.time).padStart(2, '0');
 
         tr.append($("<td/>").html(
-            localTime.concat(":00")
+            localTime
         ));
         tr.append($("<td/>").html(
             time.concat(":00 ", (event.server == "na" ? (naServerDST ? "PDT" : "PST") : "JST"))
@@ -158,9 +162,9 @@ function ftTimeTableUpdateFilter() {
 function ftClockUpdate() {
     let clockFormat = '{hour-pad}:{minute-pad}{ampm}',
         localTime = spacetime.now(),
-        localOffset = localTime.timezone().current.offset,
+        localOffset = (new Date).getTimezoneOffset(),
         localFormatted = localTime.format(clockFormat).toUpperCase(),
-        utcTime = localTime.clone().subtract(localOffset, 'hours'),
+        utcTime = localTime.clone().add(localOffset, 'minutes'),
         utcFormatted = utcTime.format(clockFormat).toUpperCase(),
         naServerOffset = spacetime.now('Pacific Time').timezone().current.offset,
         naServerTime = utcTime.clone().add(naServerOffset, 'hours'),
@@ -168,8 +172,8 @@ function ftClockUpdate() {
         jpServerOffset = spacetime.now('Asia/Tokyo').timezone().current.offset,
         jpServerTime = utcTime.clone().add(jpServerOffset, 'hours'),
         jpServerFormatted = jpServerTime.format(clockFormat).toUpperCase();
-    jpToLocal = jpServerOffset - localOffset;
-    naToLocal = naServerOffset - localOffset;
+    jpToLocal = (jpServerOffset * 60) + localOffset;
+    naToLocal = (naServerOffset * 60) + localOffset;
 
     $("#clock-local > h2").html(localFormatted);
     $("#clock-utc > h2").html(utcFormatted);
