@@ -79,9 +79,9 @@ function ftTimeTableSetup() {
     for (let i in events) {
         let time;
         if (events[i].server == "na") {
-            time = events[i].time + naToLocal;
+            time = events[i].time - naToLocal;
         } else {
-            time = events[i].time + jpToLocal;
+            time = events[i].time - jpToLocal;
         }
         if (time < 0) time += 24;
         if (time > 23) time -= 24;

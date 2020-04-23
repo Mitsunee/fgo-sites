@@ -6,7 +6,7 @@ Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
 
 ## Current status:
 
-![Version](https://img.shields.io/badge/stable-1.0.0-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
+![Version](https://img.shields.io/badge/stable-1.0.1-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
 
 
 # Built using:
