@@ -1,0 +1,180 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-width: 720px;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2e627a;
+    background-image: radial-gradient(ellipse at top, #2e2c6a, transparent),
+                      radial-gradient(ellipse at bottom, #680c5f, transparent);
+    background-size: contain;
+    color: #FFF;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+}
+
+section {
+    width: 100%;
+    display: block;
+    padding: 1.5em;
+    background-color: rgba(0,0,0,0.44);
+}
+
+section + section {
+    margin-top: 1em;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: Dosis, sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-family: Dosis, sans-serif;
+    font-weight: 700;
+}
+
+p.center {
+    text-align: center;
+}
+
+header img {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin-right: 4px;
+    position:relative;
+    top: 5px;
+}
+
+header h1 {
+    font-size: 42px;
+}
+
+header h2 {
+    font-size: 16px;
+    margin-left: 1em;
+}
+
+#clocks {
+    text-align: center;
+}
+
+.clock {
+    display: inline-block;
+    width: 350px;
+    margin: 10px;
+}
+
+@media only screen and (max-width:1495px){
+    .clock {
+        width: 39%;
+        margin: 1% 5%;
+    }
+}
+
+.button-minimize {
+    background: transparent;
+    border: 0;
+    float: right;
+    position: relative;
+    top: -1em;
+    font-size: inherit;
+    font-family: Dosis, sans-serif;
+    font-weight: 700;
+    color: white;
+}
+.button-minimize:hover {
+    text-shadow: 1px 1px 6px rgba(255,255,255,.66);
+}
+
+#clocks h1 {
+    font-size: 18px;
+}
+
+#clocks h2 {
+    font-family: "Overpass Mono", monospace;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#time-table input[type='checkbox'] {
+    display:none;
+}
+
+#time-table label {
+    user-select: none;
+}
+
+#time-table input[type='checkbox'] + label::before {
+    display: inline-block;
+    background-color: red;
+    border-radius: .5em;
+    width: 1em;
+    height: 1em;
+    margin: 0px 4px;
+    content: '';
+}
+
+#time-table input[type='checkbox']:checked + label::before {
+    background-color: green;
+}
+
+#time-table table {
+    width: 710px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#time-table table tr>th,
+#time-table table tbody>tr:hover>td {
+    background: rgba(0,0,0,.44);
+}
+
+#time-table table tbody tr>td:nth-child(1),
+#time-table table tbody tr>td:nth-child(2) {
+    font-family: "Overpass Mono", monospace;
+}
+
+#time-table table tbody tr>td:not(:last-of-type) {
+    text-align: center;
+}
+
+#time-table table tbody tr>td:nth-child(1) {width: 89px;}
+#time-table table tbody tr>td:nth-child(2) {width: 99px;}
+#time-table table tbody tr>td:nth-child(3) {width: 55px;}
+
+#ap-calc table {
+    width: 710px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#ap-calc input[type="number"] {
+    background-color: #1e1c5a;
+    color: #fff;
+    padding: 0.25em 0.33em;
+    font-size: inherit;
+    font-family: "Overpass Mono", monospace;
+    border: 1px solid #806c2b;
+    border-radius: .44em;
+    width: 64px;
+}
+
+#ap-calc table tr:first-of-type > td:last-of-type {
+    font-size: 18px;
+    text-align: center;
+}

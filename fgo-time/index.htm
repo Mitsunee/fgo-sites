@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FGO Time - Current Server Times for Fate/Grand Order</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="description" content="Current Server Times for Fate/Grand Order">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="FGO Time">
+	<meta name="twitter:description" content="Current Server Times for Fate/Grand Order">
+	<meta name="twitter:image" content="assets/icon.png">
+	<meta name="twitter:creator" content="@Mitsunee">
+	<meta property="og:title" content="FGO Time">
+	<meta property="og:image" content="assets/icon.png">
+	<meta property="og:description" content="Current Server Times for Fate/Grand Order">
+    <link rel="stylesheet" href="assets/fgo-time.css?v=rc1">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
+    <script src="assets/libs.bundle.js?v=rc1"></script>
+    <script src="assets/fgo-time.min.js?v=rc1"></script>
+</head>
+<body>
+    <header>
+        <section>
+            <img src="assets/icon.png" id="icon" alt="icon">
+            <h1>FGO Time</h1>
+            <h2>Current Server Times for Fate/Grand Order</h2>
+        </section>
+    </header>
+    <main>
+        <div id="clocks">
+            <div class="clock" id="clock-local">
+                <h1>Local</h1>
+                <h2>00:00AM</h2>
+            </div>
+            <div class="clock" id="clock-utc">
+                <h1>UTC</h1>
+                <h2>00:00AM</h2>
+            </div>
+            <div class="clock" id="clock-na">
+                <h1>NA Server</h1>
+                <h2>00:00AM</h2>
+            </div>
+            <div class="clock" id="clock-jp">
+                <h1>JP Server</h1>
+                <h2>00:00AM</h2>
+            </div>
+        </div>
+        <section id="time-table">
+            <h1>Time Table<button class="button-minimize">_</button></h1>
+            <div class="content">
+                <p>This is a list of commonly used times. They may differ for events and banners, please double check with the official news channels. All listed times are in 24h-formatting.</p>
+                <p class="center"><input type="checkbox" name="show-na" id="show-na" checked><label for="show-na">Show NA Server Times</label> | <input type="checkbox" name="show-jp" id="show-jp" checked><label for="show-jp">Show JP Server Times</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Local Time</th>
+                            <th>Server Time</th>
+                            <th>Server</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="ap-calc">
+            <h1>AP Calculator<button class="button-minimize">_</button></h1>
+            <div class="content">
+                <table>
+                    <tr>
+                        <td>Max AP</td>
+                        <td><input type="number" id="ap-calc-max-ap" value="140" min="0" max="142"></td>
+                        <td rowspan="3">You will reach your target AP in <span id="ap-calc-target-mins"></span> (<span id="ap-calc-target-time"></span>)<br>and your max AP at <span id="ap-calc-max-mins"></span> (<span id="ap-calc-max-time"></span>)</td>
+                    </tr>
+                    <tr>
+                        <td>Target AP</td>
+                        <td><input type="number" id="ap-calc-target-ap" value="140" min="0" max="142"></td>
+                    </tr>
+                    <tr>
+                        <td>Current AP</td>
+                        <td><input type="number" id="ap-calc-current-ap" value="0" min="0" max="141"></td>
+                    </tr>
+                </table>
+            </div>
+    </main>
+</body>
