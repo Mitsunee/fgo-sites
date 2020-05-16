@@ -19,10 +19,10 @@ function htmllink($path) {
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="FGO Time">
 	<meta name="twitter:description" content="Current Server Times for Fate/Grand Order">
-	<meta name="twitter:image" content="https://www.mitsunee.com/fgo-time/assets/icon.png">
+	<meta name="twitter:image" content="/fgo-time/assets/icon.png">
 	<meta name="twitter:creator" content="@Mitsunee">
 	<meta property="og:title" content="FGO Time">
-	<meta property="og:image" content="https://www.mitsunee.com/fgo-time/assets/icon.png">
+	<meta property="og:image" content="/fgo-time/assets/icon.png">
 	<meta property="og:description" content="Current Server Times for Fate/Grand Order">
 
     <link rel="stylesheet" href="<?php htmllink("assets/fgo-time.css");?>">
