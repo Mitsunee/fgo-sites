@@ -1,3 +1,14 @@
+<?php
+/**
+ * Echoes $path and adds file mod time
+ *
+ * @param string $path relative path pointing to the file
+ * @static
+ */
+function htmllink($path) {
+    echo "/$path?_=".filemtime($path);
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +25,10 @@
 	<meta property="og:image" content="https://www.mitsunee.com/fgo-time/assets/icon.png">
 	<meta property="og:description" content="Current Server Times for Fate/Grand Order">
 
-    <link rel="stylesheet" href="assets/fgo-time.css?v=rc3">
+    <link rel="stylesheet" href="<?php htmllink("assets/fgo-time.css");?>">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
-    <script src="assets/libs.bundle.js?v=rc3"></script>
-    <script src="assets/fgo-time.min.js?v=rc3"></script>
+    <script src="<?php htmllink("assets/libs.bundle.js");?>"></script>
+    <script src="<?php htmllink("assets/fgo-time.min.js");?>"></script>
 </head>
 <body>
     <header>
