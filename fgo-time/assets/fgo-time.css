@@ -54,6 +54,9 @@ p.center {
     text-align: center;
 }
 
+header section {
+    padding: 24px;
+}
 header img {
     float: left;
     width: 64px;

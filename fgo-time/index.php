@@ -75,6 +75,7 @@ function htmllink($path) {
                     <tbody>
                     </tbody>
                 </table>
+                <p>Note: Due to a bug the Free 10x Friend Point Gacha only updates at midnight device time. This means it can either not show up or get stuck, based on if you roll before or after reset. Therefore it is recommended to roll between midnight and reset if you are not in the JST timezone.</p>
             </div>
         </section>
         <section id="ap-calc" data-name="ApCalc">
