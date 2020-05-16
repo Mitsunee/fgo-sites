@@ -28,7 +28,7 @@ function htmllink($path) {
     <link rel="stylesheet" href="<?php htmllink("assets/fgo-time.css");?>">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
     <script src="<?php htmllink("assets/libs.bundle.js");?>"></script>
-    <script src="<?php htmllink("assets/fgo-time.js");?>"></script>
+    <script src="<?php htmllink("assets/fgo-time.min.js");?>"></script>
 </head>
 <body>
     <header>
@@ -58,6 +58,29 @@ function htmllink($path) {
                 <h2>00:00AM</h2>
             </div>
         </div>
+        <section id="events" data-name="EventTimers">
+            <h1>Events</h1>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th>NA Server</th>
+                        <th>JP Server</th>
+                    </tr>
+                    <tr>
+                        <td id="event-banner-na"></td>
+                        <td id="event-banner-jp"></td>
+                    </tr>
+                    <tr>
+                        <td id="event-main-na"></td>
+                        <td id="event-main-jp"></td>
+                    </tr>
+                    <tr>
+                        <td id="event-sec-na"></td>
+                        <td id="event-sec-jp"></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
         <section id="time-table" data-name="TimeTable">
             <h1>Time Table</h1>
             <div class="content">

@@ -124,6 +124,33 @@ main section>h1:hover::after {
     font-weight: 400;
 }
 
+#events table {
+    width: 710px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#events table tr>th {
+    background: rgba(0,0,0,.44);
+}
+
+#events img {
+    width: 350px;
+    height: auto;
+}
+
+#events table td {
+    text-align: center;
+    width: 50%;
+}
+
+#event-timer-na,
+#event-timer2-na,
+#event-timer-jp,
+#event-timer2-jp {
+    font-family: "Overpass Mono", monospace;
+}
+
 #time-table input[type='checkbox'] {
     display:none;
 }

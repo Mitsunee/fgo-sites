@@ -1,5 +1,6 @@
 //globals
 let naServerDST = spacetime.now('Pacific Time').isDST(),
+    etInterval = new interval(etTimersUpdate, "1s"),
     ftClockInterval = new interval(ftClockUpdate, "1s"),
     settings = localStorage.getItem('fgo-time-settings'),
     jpToLocal = 0,
@@ -10,12 +11,16 @@ const eventTimer = {
         "main":{
             "time":1589947140000,
             "text": "Event Ends",
-            "banner": null
+            "banner": "MeijiRestorationRevivalUS.png"
         },
         "secondary": null
     },
     "JP":{
-        "main": null,
+        "main": {
+            "time":1589687940000,
+            "text": "Event Ends",
+            "banner": "GudagudaHonnoji2019_Rerun_banner.png"
+        },
         "secondary": null
     }
 }
@@ -29,7 +34,7 @@ if main is null secondary will be ignored
 timer objects should hold:
 - time Number timestamp of event occuering
 - text String Description to display
-- banner String relative url to the image or null if no image
+- banner String relative url to the image or null if no image //only used for main timer
 
 **/
 
@@ -44,6 +49,7 @@ function init() {
         settings = {
             "showNa":true,
             "showJp":true,
+            "showEventTimers":true,
             "showTimeTable":true,
             "showApCalc":true,
             "showLinks":true
@@ -54,6 +60,10 @@ function init() {
 
     //Apply settings
     //Show sections
+    if (settings.showEventTimers === false) {
+        $("#events").addClass("section-hidden");
+        $("#events > .content").hide();
+    }
     if (settings.showTimeTable === false) {
         $("#time-table").addClass("section-hidden");
         $("#time-table > .content").hide();
@@ -84,12 +94,18 @@ function init() {
         $("#ap-calc-current-ap").val(settings.currAp);
     }
 
-    //Update stuff and attach functions
-    ftClockUpdate();
+    //setup event table
+    etTableSetup();
+    etTimersUpdate();
+    //setup timetable
     ftTimeTableSetup();
+    ftClockUpdate();
     ftApCalcUpdate();
+    //attach onclick functions
     $("main section > h1").on("click", sectionToggleDisplay);
     $("#ap-calc input").on("input", ftApCalcUpdate);
+    //start intervals
+    etInterval.start();
     ftClockInterval.start();
 
     //show site
@@ -101,13 +117,9 @@ function init() {
  * SECTION TOGGLE
  */
 function sectionToggleDisplay() {
-    console.log("Hi");
     section = $(this).parent();
-    console.log("loop before");
     while(section && !section.is("section")) {
-        console.log("loop iteration start",section);
         section = section.parent();
-        console.log("loop iteration end",section);
     }
     if (section.hasClass("section-hidden")) {
         section.removeClass("section-hidden");
@@ -117,6 +129,86 @@ function sectionToggleDisplay() {
         section.addClass("section-hidden");
         section.find(".content").slideUp(200);
         settings["show" + section.data("name")] = false;
+    }
+}
+
+/*
+ * EVENT TIMER FUNCTIONS
+ */
+
+function etTableSetup() {
+    //NA
+    if (eventTimer.NA.main !== null) {
+        //Banner image
+        if (eventTimer.NA.main.banner !== null) {
+            let img = $("<img>").attr("src", "assets/img/" + eventTimer.NA.main.banner);
+            $("#event-banner-na").append(img);
+        }
+        //Timer
+        $("#event-main-na").append($("<span>").html(eventTimer.NA.main.text + ": "))
+            .append($("<span>").attr("id","event-timer-na"));
+        //Secondary timer
+        if (eventTimer.NA.secondary !== null) {
+            $("#event-sec-na").append($("<span>").html(eventTimer.NA.secondary.text + ": "))
+                .append($("<span>").attr("id","event-timer2-na"));
+        }
+    }
+    //JP
+    if (eventTimer.JP.main !== null) {
+        //Banner image
+        if (eventTimer.JP.main.banner !== null) {
+            let img = $("<img>").attr("src", "assets/img/" + eventTimer.JP.main.banner);
+            $("#event-banner-jp").append(img);
+        }
+        //Timer
+        $("#event-main-jp").append($("<span>").html(eventTimer.JP.main.text + ": "))
+            .append($("<span>").attr("id","event-timer-jp"));
+        //Secondary timer
+        if (eventTimer.JP.secondary !== null) {
+            $("#event-sec-jp").append($("<span>").html(eventTimer.JP.secondary.text + ": "))
+                .append($("<span>").attr("id","event-timer2-jp"));
+        }
+    }
+}
+
+function etTimersUpdate() {
+    if (eventTimer.NA.main !== null) {
+        $("#event-timer-na").html(etCalcTimer(eventTimer.NA.main.time));
+        if (eventTimer.NA.secondary !== null) {
+            $("#event-timer2-na").html(etCalcTimer(eventTimer.NA.secondary.time));
+        }
+    }
+    if (eventTimer.JP.main !== null) {
+        $("#event-timer-jp").html(etCalcTimer(eventTimer.JP.main.time));
+        if (eventTimer.JP.secondary !== null) {
+            $("#event-timer2-jp").html(etCalcTimer(eventTimer.JP.secondary.time));
+        }
+    }
+}
+
+/*
+ * @param goalTime Number timestamp with milliseconds for when the event occurs
+ * @returns String;
+ */
+function etCalcTimer(goalTime) {
+    let difference = goalTime - Date.now();
+    difference = 0| difference / 1000;//Cull milliseconds
+    if (difference <= 0) {
+        return "00:00:00:00";
+    } else {
+        let s = difference;
+        //days
+        let d = 0| s / 86400;
+        s = s % 86400;
+        //hours
+        let h = 0| s / 3600;
+        s = s % 3600;
+        //minutes
+        let m = 0| s / 60;
+        s = s % 60;
+        //build string and return
+        let t = (d < 10 ? "0" : "") + String(d) + ":" + (h < 10 ? "0" : "") + String(h) + ":" + (m < 10 ? "0" : "") + String(m) + ":" + (s < 10 ? "0" : "") + String(s);
+        return t;
     }
 }
 
