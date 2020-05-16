@@ -5,6 +5,34 @@ let naServerDST = spacetime.now('Pacific Time').isDST(),
     jpToLocal = 0,
     naToLocal = 0;
 
+const eventTimer = {
+    "NA":{
+        "main":{
+            "time":1589947140000,
+            "text": "Event Ends",
+            "banner": null
+        },
+        "secondary": null
+    },
+    "JP":{
+        "main": null,
+        "secondary": null
+    }
+}
+/**
+
+Event timers:
+"NA" or "JP" regions
+both regions have one main and one secondary timer
+if timer not needed put null
+if main is null secondary will be ignored
+timer objects should hold:
+- time Number timestamp of event occuering
+- text String Description to display
+- banner String relative url to the image or null if no image
+
+**/
+
 //init
 $(init);
 //on unload save settings
@@ -13,18 +41,39 @@ $(window).on("unload", () => (localStorage.setItem('fgo-time-settings', JSON.str
 function init() {
     //Apply default settings or parse existing settings
     if (settings == null) {
-        settings = {"showNa":true, "showJp":true};
+        settings = {
+            "showNa":true,
+            "showJp":true,
+            "showTimeTable":true,
+            "showApCalc":true,
+            "showLinks":true
+        };
     } else {
         settings = JSON.parse(settings);
     }
 
     //Apply settings
+    //Show sections
+    if (settings.showTimeTable === false) {
+        $("#time-table").addClass("section-hidden");
+        $("#time-table > .content").hide();
+    }
+    if (settings.showApCalc === false) {
+        $("#ap-calc").addClass("section-hidden");
+        $("#ap-calc > .content").hide();
+    }
+    if (settings.showLinks === false) {
+        $("#links").addClass("section-hidden");
+        $("#links > .content").hide();
+    }
+    //TimeTable Settings
     if (settings.showNa === false) {
         $("#show-na").prop("checked", false);
     }
     if (settings.showJp === false) {
         $("#show-jp").prop("checked", false);
     }
+    //AP Calc settings
     if (settings.maxAp) {
         $("#ap-calc-max-ap").val(settings.maxAp);
     }
@@ -39,22 +88,35 @@ function init() {
     ftClockUpdate();
     ftTimeTableSetup();
     ftApCalcUpdate();
-    $("button").on("click", sectionToggleDisplay);
+    $("main section > h1").on("click", sectionToggleDisplay);
     $("#ap-calc input").on("input", ftApCalcUpdate);
     ftClockInterval.start();
+
+    //show site
+    $("main").show();
+    $("#loading").hide();
 }
 
 /*
  * SECTION TOGGLE
  */
 function sectionToggleDisplay() {
-    section = $(this).parent().parent();
+    console.log("Hi");
+    section = $(this).parent();
+    console.log("loop before");
+    while(section && !section.is("section")) {
+        console.log("loop iteration start",section);
+        section = section.parent();
+        console.log("loop iteration end",section);
+    }
     if (section.hasClass("section-hidden")) {
         section.removeClass("section-hidden");
         section.find(".content").slideDown(200);
+        settings["show" + section.data("name")] = true;
     } else {
         section.addClass("section-hidden");
         section.find(".content").slideUp(200);
+        settings["show" + section.data("name")] = false;
     }
 }
 

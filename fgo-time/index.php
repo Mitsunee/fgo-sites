@@ -6,7 +6,7 @@
  * @static
  */
 function htmllink($path) {
-    echo "/$path?_=".filemtime($path);
+    echo "$path?_=".filemtime($path);
 }
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ function htmllink($path) {
     <link rel="stylesheet" href="<?php htmllink("assets/fgo-time.css");?>">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
     <script src="<?php htmllink("assets/libs.bundle.js");?>"></script>
-    <script src="<?php htmllink("assets/fgo-time.min.js");?>"></script>
+    <script src="<?php htmllink("assets/fgo-time.js");?>"></script>
 </head>
 <body>
     <header>
@@ -38,7 +38,8 @@ function htmllink($path) {
             <h2>Current Server Times for Fate/Grand Order</h2>
         </section>
     </header>
-    <main>
+    <div id="loading">Loading...</div>
+    <main style="display:none;">
         <div id="clocks">
             <div class="clock" id="clock-local">
                 <h1>Local</h1>
@@ -57,8 +58,8 @@ function htmllink($path) {
                 <h2>00:00AM</h2>
             </div>
         </div>
-        <section id="time-table">
-            <h1>Time Table<button class="button-minimize">_</button></h1>
+        <section id="time-table" data-name="TimeTable">
+            <h1>Time Table</h1>
             <div class="content">
                 <p>This is a list of commonly used times. They may differ for events and banners, please double check with the official news channels. All listed times are in 24h-formatting.</p>
                 <p class="center"><input type="checkbox" name="show-na" id="show-na" checked><label for="show-na">Show NA Server Times</label> | <input type="checkbox" name="show-jp" id="show-jp" checked><label for="show-jp">Show JP Server Times</p>
@@ -76,8 +77,8 @@ function htmllink($path) {
                 </table>
             </div>
         </section>
-        <section id="ap-calc">
-            <h1>AP Calculator<button class="button-minimize">_</button></h1>
+        <section id="ap-calc" data-name="ApCalc">
+            <h1>AP Calculator</h1>
             <div class="content">
                 <table>
                     <tr>
@@ -95,5 +96,36 @@ function htmllink($path) {
                     </tr>
                 </table>
             </div>
+        </section>
+        <section id="links" data-name="Links">
+            <h1>Useful links</h1>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th>Resources</th>
+                        <th>Guides &amp; Wikis</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><a href="https://apps.atlasacademy.io/drop-lookup/#/" title="FGO Dropsheet Lookup Tool">fgo-lookup</a></li>
+                                <li><a href="https://rayshift.io/" title="Friend ID Lookup and Raid Tracking">Rayshift.io</a></li>
+                                <li><a href="https://apps.atlasacademy.io/drop-serializer/" title="Submission form for community droprate data">Drop Serializer</a></li>
+                                <li><a href="https://maketakunai.github.io/">maketakunai's Damage Calculator</a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><a href="https://www.kscopedia.net/" titles="Lord Ashura's Event Guides">Kscopedia</a></li>
+                                <li><a href="https://fategrandorder.fandom.com/wiki/Fate/Grand_Order_Wikia">Fandom Wiki</a></li>
+                                <li><a href="https://grandorder.wiki/Main_Page">Grandorder.wiki</a></li>
+                                <li><a href="https://gamepress.gg/grandorder/">Gamepress</a></li>
+                                <li><a href="https://fate-go.cirnopedia.org/">Cirnopedia</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
     </main>
 </body>

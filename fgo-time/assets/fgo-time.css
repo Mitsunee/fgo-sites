@@ -25,8 +25,11 @@ body {
 section {
     width: 100%;
     display: block;
-    padding: 1.5em;
     background-color: rgba(0,0,0,0.44);
+}
+section > .content {
+    padding:24px;
+    padding-top: 0px;
 }
 
 section + section {
@@ -86,7 +89,12 @@ header h2 {
     }
 }
 
-.button-minimize {
+main section>h1{
+    padding: 24px;
+}
+main section>h1::after {
+    display: block;
+    content: "_";
     background: transparent;
     border: 0;
     float: right;
@@ -97,9 +105,11 @@ header h2 {
     font-weight: 700;
     color: white;
 }
-.button-minimize:hover {
-    text-shadow: 1px 1px 6px rgba(255,255,255,.66);
+main section>h1:hover,
+main section>h1:hover::after {
+    text-shadow: 1px 1px 6px rgba(255,255,255,.44);
 }
+
 
 #clocks h1 {
     font-size: 18px;
@@ -177,4 +187,22 @@ header h2 {
 #ap-calc table tr:first-of-type > td:last-of-type {
     font-size: 18px;
     text-align: center;
+}
+
+#links table {
+    width: 710px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#links table tr>th {
+    background: rgba(0,0,0,.44);
+}
+
+#links table td {
+    vertical-align: top;
+}
+
+#links table a {
+    color: white;
 }
