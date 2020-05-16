@@ -9,15 +9,18 @@ let naServerDST = spacetime.now('Pacific Time').isDST(),
 const eventTimer = {
     "NA":{
         "main":{
-            "time":1589947140000,
+            "time":1589947140,
             "text": "Event Ends",
             "banner": "MeijiRestorationRevivalUS.png"
         },
-        "secondary": null
+        "secondary": {
+            "time":1590638340,
+            "text": "Okita Banner Ends"
+        }
     },
     "JP":{
         "main": {
-            "time":1589687940000,
+            "time":1589687940,
             "text": "Event Ends",
             "banner": "GudagudaHonnoji2019_Rerun_banner.png"
         },
@@ -187,12 +190,11 @@ function etTimersUpdate() {
 }
 
 /*
- * @param goalTime Number timestamp with milliseconds for when the event occurs
+ * @param goalTime Number unix timestamp for when the event occurs
  * @returns String;
  */
 function etCalcTimer(goalTime) {
-    let difference = goalTime - Date.now();
-    difference = 0| difference / 1000;//Cull milliseconds
+    let difference = goalTime - (0| Date.now() / 1000);
     if (difference <= 0) {
         return "00:00:00:00";
     } else {
