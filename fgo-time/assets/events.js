@@ -12,11 +12,14 @@ const eventTimer = {
     },
     "JP":{
         "main": {
-            "time":1593529140,
-            "text": "Deadline for Free SSR",
-            "banner": "info_image_02.png"
+            "time":1590937200,
+            "text": "Fate/Requiem Collab Pre-Release Ends",
+            "banner": "EYNZ_2tVAAAAY0Y.png"//info_image_02.png for SSR
         },
-        "secondary": null
+        "secondary": {
+            "time":1593529140,
+            "text": "Deadline for Free SSR"
+        }
     }
 }
 
