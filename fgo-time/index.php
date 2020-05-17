@@ -63,22 +63,18 @@ function htmllink($path) {
             <h1>Events</h1>
             <div class="content">
                 <table>
-                    <tr>
-                        <th>NA Server</th>
-                        <th>JP Server</th>
-                    </tr>
-                    <tr>
-                        <td id="event-banner-na"></td>
-                        <td id="event-banner-jp"></td>
-                    </tr>
-                    <tr>
-                        <td id="event-main-na"></td>
-                        <td id="event-main-jp"></td>
-                    </tr>
-                    <tr>
-                        <td id="event-sec-na"></td>
-                        <td id="event-sec-jp"></td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>NA Server</th>
+                            <th>JP Server</th>
+                        </tr>
+                        <tr>
+                            <td id="event-banner-na"></td>
+                            <td id="event-banner-jp"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
                 </table>
             </div>
         </section>

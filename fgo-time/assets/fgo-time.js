@@ -64,19 +64,18 @@ function init() {
     }
 
     //setup event table
-    etTableSetup();
-    etTimersUpdate();
+    if (etTableSetup() && settings.showEventTimers !== false) {
+        etTimersUpdate();
+        etInterval.start();
+    }
     //setup timetable
     ftTimeTableSetup();
     ftClockUpdate();
     ftApCalcUpdate();
+    ftClockInterval.start();
     //attach onclick functions
     $("main section > h1").on("click", sectionToggleDisplay);
     $("#ap-calc input").on("input", ftApCalcUpdate);
-    //start intervals
-    etInterval.start();
-    ftClockInterval.start();
-
     //show site
     $("main").show();
     $("#loading").hide();
@@ -94,10 +93,15 @@ function sectionToggleDisplay() {
         section.removeClass("section-hidden");
         section.find(".content").slideDown(200);
         settings["show" + section.data("name")] = true;
+        if (section.attr("id") == "events") {
+            etTimersUpdate();
+            etInterval.start();
+        }
     } else {
         section.addClass("section-hidden");
         section.find(".content").slideUp(200);
         settings["show" + section.data("name")] = false;
+        if (section.attr("id") == "events") etInterval.stop();
     }
 }
 
@@ -106,52 +110,42 @@ function sectionToggleDisplay() {
  */
 
 function etTableSetup() {
-    //NA
-    if (eventTimer.NA.main !== null) {
-        //Banner image
-        if (eventTimer.NA.main.banner !== null) {
-            let img = $("<img>").attr("src", "assets/img/" + eventTimer.NA.main.banner);
-            $("#event-banner-na").append(img);
-        }
-        //Timer
-        $("#event-main-na").append($("<span>").html(eventTimer.NA.main.text + ": "))
-            .append($("<span>").attr("id","event-timer-na"));
-        //Secondary timer
-        if (eventTimer.NA.secondary !== null) {
-            $("#event-sec-na").append($("<span>").html(eventTimer.NA.secondary.text + ": "))
-                .append($("<span>").attr("id","event-timer2-na"));
-        }
+    if (eventTimer.NA.banner !== null) {
+        let img = $("<img>").attr("src", "assets/img/" + eventTimer.NA.banner);
+        $("#event-banner-na").append(img);
     }
-    //JP
-    if (eventTimer.JP.main !== null) {
-        //Banner image
-        if (eventTimer.JP.main.banner !== null) {
-            let img = $("<img>").attr("src", "assets/img/" + eventTimer.JP.main.banner);
-            $("#event-banner-jp").append(img);
-        }
-        //Timer
-        $("#event-main-jp").append($("<span>").html(eventTimer.JP.main.text + ": "))
-            .append($("<span>").attr("id","event-timer-jp"));
-        //Secondary timer
-        if (eventTimer.JP.secondary !== null) {
-            $("#event-sec-jp").append($("<span>").html(eventTimer.JP.secondary.text + ": "))
-                .append($("<span>").attr("id","event-timer2-jp"));
-        }
+    if (eventTimer.JP.banner !== null) {
+        let img = $("<img>").attr("src", "assets/img/" + eventTimer.JP.banner);
+        $("#event-banner-jp").append(img);
     }
+    if (eventTimer.NA.timer.length < 1 && eventTimer.JP.timer.length < 1) return false;
+
+    let timers = Math.max(eventTimer.NA.timer.length, eventTimer.JP.timer.length);
+
+    for (let i = 0; i < timers; i++) {
+        let tr = $("<tr>"),
+            na = $("<td>"),
+            jp = $("<td>");
+        if (eventTimer.NA.timer[i]) {
+            na.append($("<span>").html(eventTimer.NA.timer[i].text + ": "));
+            na.append($("<span>").addClass("timer").addClass("timer-na"));
+        }
+        if (eventTimer.JP.timer[i]) {
+            jp.append($("<span>").html(eventTimer.JP.timer[i].text + ": "));
+            jp.append($("<span>").addClass("timer").addClass("timer-jp"));
+        }
+        tr.append(na).append(jp);
+        $("#events table tbody").append(tr);
+    }
+    return true;
 }
 
 function etTimersUpdate() {
-    if (eventTimer.NA.main !== null) {
-        $("#event-timer-na").html(etCalcTimer(eventTimer.NA.main.time));
-        if (eventTimer.NA.secondary !== null) {
-            $("#event-timer2-na").html(etCalcTimer(eventTimer.NA.secondary.time));
-        }
+    for (let timer in eventTimer.NA.timer) {
+        $("#events table tbody").children().eq(timer).find(".timer-na").html(etCalcTimer(eventTimer.NA.timer[timer].time));
     }
-    if (eventTimer.JP.main !== null) {
-        $("#event-timer-jp").html(etCalcTimer(eventTimer.JP.main.time));
-        if (eventTimer.JP.secondary !== null) {
-            $("#event-timer2-jp").html(etCalcTimer(eventTimer.JP.secondary.time));
-        }
+    for (let timer in eventTimer.JP.timer) {
+        $("#events table tbody").children().eq(timer).find(".timer-jp").html(etCalcTimer(eventTimer.JP.timer[timer].time));
     }
 }
 

@@ -144,10 +144,7 @@ main section>h1:hover::after {
     width: 50%;
 }
 
-#event-timer-na,
-#event-timer2-na,
-#event-timer-jp,
-#event-timer2-jp {
+#events table tbody td span.timer {
     font-family: "Overpass Mono", monospace;
 }
 
