@@ -75,6 +75,12 @@ function htmllink($path) {
                     </thead>
                     <tbody>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Murder at Kogetsukan chapter release at 21PDT every day.</td>
+                            <td>A livestream has been announced for May 25, 2020 19:00 ~ JST</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </section>

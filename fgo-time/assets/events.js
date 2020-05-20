@@ -3,11 +3,8 @@ const eventTimer = {
         "banner": "MeijiRestorationRevivalUS.png",
         "timer": [
             {
-                "time":1589947140,
-                "text": "GUDAGUDA Meiji Restoration Ends",
-            },{
-                "time":1589947200,
-                "text": "Murder at the Kogetsukan Begins"
+                "time":1591156740,
+                "text": "Murder at the Kogetsukan Ends"
             },{
                 "time":1590638340,
                 "text": "Okita Banner Ends"
