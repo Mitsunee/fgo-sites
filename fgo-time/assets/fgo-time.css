@@ -28,7 +28,8 @@ section {
     background-color: rgba(0,0,0,0.44);
 }
 section > .content {
-    padding:24px;
+    font-size: 16px;
+    padding: 1.26vw;
     padding-top: 0px;
 }
 
@@ -72,28 +73,35 @@ header h1 {
 
 header h2 {
     font-size: 16px;
-    margin-left: 1em;
 }
 
 #clocks {
+    max-width: 100%;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .clock {
     display: inline-block;
-    width: 350px;
-    margin: 10px;
+    width: 33%;
+    margin: 1% 0;
 }
 
-@media only screen and (max-width:1495px){
-    .clock {
-        width: 39%;
-        margin: 1% 5%;
-    }
+.clock h1 {
+    font-size: 1.4vw;
+}
+
+.clock h2 {
+    font-family: "Overpass Mono", monospace;
+    width: 100%;
+    font-size: 2.25vw;
+    font-weight: 400;
 }
 
 main section>h1{
-    padding: 24px;
+    padding: 0.9em;
+    font-size: 1.4vw;
 }
 main section>h1::after {
     display: block;
@@ -114,18 +122,25 @@ main section>h1:hover::after {
 }
 
 
-#clocks h1 {
-    font-size: 18px;
-}
-
-#clocks h2 {
-    font-family: "Overpass Mono", monospace;
-    font-size: 30px;
-    font-weight: 400;
+@media (max-width: 1280px) {
+    .clock h1 {
+        font-size: 17.92px;
+    }
+    .clock h2 {
+        font-size: 28.8px;
+    }
+    main section>h1 {
+        font-size: 17.92px;
+    }
+    section > .content {
+        padding: 16.128px;
+        padding-top: 0;
+    }
 }
 
 #events table {
-    width: 710px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     border-collapse: collapse;
 }
@@ -135,7 +150,7 @@ main section>h1:hover::after {
 }
 
 #events img {
-    width: 350px;
+    width: 99%;
     height: auto;
 }
 
@@ -171,7 +186,8 @@ main section>h1:hover::after {
 }
 
 #time-table table {
-    width: 710px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     border-collapse: collapse;
 }
@@ -195,7 +211,8 @@ main section>h1:hover::after {
 #time-table table tbody tr>td:nth-child(3) {width: 55px;}
 
 #ap-calc table {
-    width: 710px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     border-collapse: collapse;
 }
@@ -216,8 +233,13 @@ main section>h1:hover::after {
     text-align: center;
 }
 
+#ap-calc table .output {
+    width: 75%;
+}
+
 #links table {
-    width: 710px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     border-collapse: collapse;
 }

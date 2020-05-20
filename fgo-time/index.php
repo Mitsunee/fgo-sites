@@ -46,10 +46,6 @@ function htmllink($path) {
                 <h1>Local</h1>
                 <h2>00:00AM</h2>
             </div>
-            <div class="clock">
-                <h1>UTC</h1>
-                <h2>XX:XXAM</h2>
-            </div>
             <div class="clock" id="clock-na">
                 <h1>NA Server</h1>
                 <h2>00:00AM</h2>
@@ -111,7 +107,7 @@ function htmllink($path) {
                     <tr>
                         <td>Max AP</td>
                         <td><input type="number" id="ap-calc-max-ap" value="140" min="0" max="142"></td>
-                        <td rowspan="3">You will reach your target AP in <span id="ap-calc-target-mins"></span> (<span id="ap-calc-target-time"></span>)<br>and your max AP at <span id="ap-calc-max-mins"></span> (<span id="ap-calc-max-time"></span>)</td>
+                        <td rowspan="3" class="output">You will reach your target AP in <span id="ap-calc-target-mins"></span> (<span id="ap-calc-target-time"></span>)<br>and your max AP at <span id="ap-calc-max-mins"></span> (<span id="ap-calc-max-time"></span>)</td>
                     </tr>
                     <tr>
                         <td>Target AP</td>
