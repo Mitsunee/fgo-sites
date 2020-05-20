@@ -46,9 +46,9 @@ function htmllink($path) {
                 <h1>Local</h1>
                 <h2>00:00AM</h2>
             </div>
-            <div class="clock" id="clock-utc">
+            <div class="clock">
                 <h1>UTC</h1>
-                <h2>00:00AM</h2>
+                <h2>XX:XXAM</h2>
             </div>
             <div class="clock" id="clock-na">
                 <h1>NA Server</h1>

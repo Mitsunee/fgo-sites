@@ -3,8 +3,11 @@ let naServerDST = spacetime.now('Pacific Time').isDST(),
     etInterval = new interval(etTimersUpdate, "1s"),
     ftClockInterval = new interval(ftClockUpdate, "1s"),
     settings = localStorage.getItem('fgo-time-settings'),
-    jpToLocal = 0,
-    naToLocal = 0;
+    clockFormat = '{hour-pad}:{minute-pad}{ampm}',
+    jpToUTC = 0,//conversion offsets in minutes
+    naToUTC = 0,
+    localToUTC = 0;
+
 
 
 //init
@@ -69,8 +72,8 @@ function init() {
         etInterval.start();
     }
     //setup timetable
-    ftTimeTableSetup();
     ftClockUpdate();
+    ttSetup();
     ftApCalcUpdate();
     ftClockInterval.start();
     //attach onclick functions
@@ -178,33 +181,34 @@ function etCalcTimer(goalTime) {
  * TIME TABLE FUNCTIONS
  */
 
-function ftTimeTableSetup() {
+function ttSetup() {
     //Apply toogle function
-    $("input[type='checkbox']").on("change", ftTimeTableToggleDisplay);
+    $("input[type='checkbox']").on("change", ttToggleDisplay);
 
     //compile events
-    let events = [];
-    if (naServerDST) {
-        events = events.concat(ftTimeTableEvents["NA_DST"]);
-    } else {
-        events = events.concat(ftTimeTableEvents["NA"]);
-    }
-    events = events.concat(ftTimeTableEvents["JP"]);
+    let events = ttNA.concat(ttJP);
 
     //convert times
     for (let i in events) {
-        let time, h, m;
-        if (events[i].server == "na") {
-            time = (events[i].time * 60) - naToLocal;
-        } else {
-            time = (events[i].time * 60) - jpToLocal;
-        }
+        //calculate times
+        let time = (events[i].time * 60) + (events[i].server == "na" ? naToUTC : jpToUTC),
+            localTime = (events[i].time * 60) + localToUTC,
+            h, m, timeAsString, localTimeAsString, sortTime;
+        //fix if passed 0am in any direction and build time strings
         if (time < 0) time += 1440;
         if (time > 1439) time -= 1440;
         h = 0| time / 60;
-        m = String(time - (h * 60)).padStart(2, "0");
-        h = String(h).padStart(2, "0");
-        events[i].localTime = h+":"+m;
+        m = 0| time % 60;
+        timeAsString = (h < 10 ? "0" : "") + String(h) + ":" + (m < 10 ? "0": "") + String(m);
+        if (localTime < 0) localTime += 1440;
+        if (localTime > 1439) localTime -= 1440;
+        h = 0| localTime / 60;
+        m = 0| localTime % 60;
+        localTimeAsString = (h < 10 ? "0" : "") + String(h) + ":" + (m < 10 ? "0": "") + String(m);
+        sortTime = (h * 100) + m;
+        //add to Array
+        events[i].serverTime = timeAsString;
+        events[i].localTime = localTimeAsString;
         events[i].sortTime = Number(h+m);
     }
 
@@ -213,17 +217,16 @@ function ftTimeTableSetup() {
         return a.sortTime - b.sortTime;
     })
 
+    console.log(events);
+
     //create table
     for (let event of events) {
-        let tr = $("<tr/>").attr("data-server", event.server),
-            localTime = event.localTime,
-            time = String(event.time).padStart(2, '0');
-
+        let tr = $("<tr/>").attr("data-server", event.server);
         tr.append($("<td/>").html(
-            localTime
+            event.localTime
         ));
         tr.append($("<td/>").html(
-            time.concat(":00 ", (event.server == "na" ? (naServerDST ? "PDT" : "PST") : "JST"))
+            event.serverTime.concat(" ", event.server == "na" ? (naServerDST ? "PDT" : "PST") : "JST")
         ));
         tr.append($("<td/>").html(
             event.server.toUpperCase()
@@ -235,10 +238,10 @@ function ftTimeTableSetup() {
     }
 
     //update filter
-    ftTimeTableUpdateFilter();
+    ttUpdateFilter();
 }
 
-function ftTimeTableToggleDisplay() {
+function ttToggleDisplay() {
     switch(this.id) {
         case "show-na":
             settings.showNa = this.checked;
@@ -249,10 +252,10 @@ function ftTimeTableToggleDisplay() {
         default:
             return false;
     }
-    ftTimeTableUpdateFilter();
+    ttUpdateFilter();
 }
 
-function ftTimeTableUpdateFilter() {
+function ttUpdateFilter() {
     let times = $("#time-table table tbody").children();
 
     for (let time of times) {
@@ -276,23 +279,22 @@ function ftTimeTableUpdateFilter() {
 }
 
 function ftClockUpdate() {
-    let clockFormat = '{hour-pad}:{minute-pad}{ampm}',
-        localTime = spacetime.now(),
+    let localTime = spacetime.now(),
         localOffset = (new Date).getTimezoneOffset(),
         localFormatted = localTime.format(clockFormat).toUpperCase(),
         utcTime = localTime.clone().add(localOffset, 'minutes'),
-        utcFormatted = utcTime.format(clockFormat).toUpperCase(),
         naServerOffset = spacetime.now('Pacific Time').timezone().current.offset,
         naServerTime = utcTime.clone().add(naServerOffset, 'hours'),
         naServerFormatted = naServerTime.format(clockFormat).toUpperCase(),
         jpServerOffset = spacetime.now('Asia/Tokyo').timezone().current.offset,
         jpServerTime = utcTime.clone().add(jpServerOffset, 'hours'),
         jpServerFormatted = jpServerTime.format(clockFormat).toUpperCase();
-    jpToLocal = (jpServerOffset * 60) + localOffset;
-    naToLocal = (naServerOffset * 60) + localOffset;
+    //update globals conversion offsets
+    jpToUTC = jpServerOffset * 60;
+    naToUTC = naServerOffset * 60;
+    localToUTC = localOffset * (-1);
 
     $("#clock-local > h2").html(localFormatted);
-    $("#clock-utc > h2").html(utcFormatted);
     $("#clock-na > h2").html(naServerFormatted);
     $("#clock-jp > h2").html(jpServerFormatted);
 }
@@ -353,22 +355,16 @@ function ftApCalcUpdate() {
 
 /*
  * DATA LOOKUP
+ * Times in hours UTC
  */
 
-const ftTimeTableEvents = {
-    "NA": [
-        {"time": 0, "desc": "Event Start Time", "server":"na"},
-        {"time": 16, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
-        {"time": 20, "desc": "Daily Login Reset and Event End Time", "server":"na"},
+const ttNA = [//PDT -7 (summer) / PST -8 (winter)
+        {"time": 8, "desc": "Event Start Time", "server":"na"},
+        {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
+        {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
     ],
-    "NA_DST": [
-        {"time": 1, "desc": "Event Start Time", "server":"na"},
-        {"time": 17, "desc": "Daily Quest and FP Gacha Reset", "server":"na"},
-        {"time": 21, "desc": "Daily Login Reset and Event End/Maintenance Start Time", "server":"na"},
-    ],
-    "JP": [
-        {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
-        {"time": 4, "desc": "Daily Login Reset", "server":"jp"},
-        {"time": 13, "desc": "Maintenance Start Time", "server":"jp"},
-    ]
-}
+    ttJP = [//JST +9
+        {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
+        {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
+        {"time": 4, "desc": "Maintenance Start Time", "server":"jp"},
+    ];
