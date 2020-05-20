@@ -1,6 +1,6 @@
 const eventTimer = {
     "NA":{
-        "banner": "MeijiRestorationRevivalUS.png",
+        "banner": "KogetsukanBannerUS.png",
         "timer": [
             {
                 "time":1591156740,
