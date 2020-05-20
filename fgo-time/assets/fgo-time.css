@@ -252,6 +252,6 @@ main section>h1:hover::after {
     vertical-align: top;
 }
 
-#links table a {
+#links a {
     color: white;
 }

@@ -121,7 +121,7 @@ function htmllink($path) {
             </div>
         </section>
         <section id="links" data-name="Links">
-            <h1>Useful links</h1>
+            <h1>Useful Links</h1>
             <div class="content">
                 <table>
                     <tr>
@@ -148,6 +148,7 @@ function htmllink($path) {
                         </td>
                     </tr>
                 </table>
+                <p>Any problems? <a href="https://github.com/Mitsunee/fgo-time/issues">Report Bugs/Issues on Github</a> or join <a href="https://discord.gg/ZncPkjw">the Neko-Castle Discord server</a>.
             </div>
         </section>
     </main>
