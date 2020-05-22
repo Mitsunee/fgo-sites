@@ -49,6 +49,7 @@ const tt = [
     {"time": 8, "desc": "Event Start Time", "server":"na"},
     {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
     {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
+    {"time": 4, "desc": "Event Rotation (Kogetsukan and Hunting Quest)", "server":"na"},
     //JST +9
     {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
     {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
