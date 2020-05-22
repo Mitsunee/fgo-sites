@@ -55,6 +55,10 @@ p.center {
     text-align: center;
 }
 
+main a {
+    color: white;
+}
+
 header section {
     padding: 24px;
 }
@@ -250,8 +254,4 @@ main section>h1:hover::after {
 
 #links table td {
     vertical-align: top;
-}
-
-#links a {
-    color: white;
 }

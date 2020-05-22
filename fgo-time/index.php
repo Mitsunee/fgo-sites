@@ -73,8 +73,8 @@ function htmllink($path) {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Murder at Kogetsukan chapter release at 21PDT every day.</td>
-                            <td>A livestream has been announced for May 25, 2020 19:00 ~ JST</td>
+                            <td>Murder at Kogetsukan chapter release at 21PDT every day.<br>Hunting Quest rotate at 21PDT everyday as well.</td>
+                            <td>A <a href="https://www.youtube.com/watch?v=02cc0O90sDA&feature=youtu.be">livestream</a> has been announced for May 25, 2020 19:00 ~ JST</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -97,7 +97,7 @@ function htmllink($path) {
                     <tbody>
                     </tbody>
                 </table>
-                <p>Note: Due to a bug the Free 10x Friend Point Gacha only updates at midnight device time. This means it can either not show up or get stuck, based on if you roll before or after reset. Therefore it is recommended to roll between midnight and reset if you are not in the JST timezone.</p>
+                <p>Note (for JP): Due to a bug the Free 10x Friend Point Gacha only updates at midnight device time. This means it can either not show up or get stuck, based on if you roll before or after reset. Therefore it is recommended to roll between midnight and reset if you are not in the JST timezone.</p>
             </div>
         </section>
         <section id="ap-calc" data-name="ApCalc">

@@ -11,19 +11,22 @@
 
 const eventTimer = {
     "NA":{
-        "banner": "KogetsukanBannerUS.png",
+        "banner": "banner_20200609_ws8t6.png",
         "timer": [
             {
-                "time":1591156740,
-                "text": "Murder at the Kogetsukan Ends"
+                "time":1590566400,
+                "text":"10M DL Campaign Begins"
             },{
                 "time":1590638340,
                 "text": "Okita Banner Ends"
+            },{
+                "time":1591156740,
+                "text": "Murder at the Kogetsukan Ends"
             }
         ]
     },
     "JP":{
-        "banner":"EYNZ_2tVAAAAY0Y.png",//info_image_02.png for SSR
+        "banner":"EYNZ_2tVAAAAY0Y.png",
         "timer": [
             {
                 "time":1590937200,
