@@ -29,6 +29,9 @@ const eventTimer = {
         "banner":"EYNZ_2tVAAAAY0Y.png",
         "timer": [
             {
+                "time":1590400800,
+                "text": "livestream"
+            },{
                 "time":1590937200,
                 "text": "Fate/Requiem Collab Pre-Release Ends"
             },{
