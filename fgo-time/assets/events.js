@@ -1,3 +1,14 @@
+/*
+ *
+ * Event timers:
+ * "NA" or "JP" regions
+ * set banner to null to ignore
+ * timer objects should hold:
+ * - time Number timestamp of event occuering
+ * - text String Description to display
+ *
+ */
+
 const eventTimer = {
     "NA":{
         "banner": "KogetsukanBannerUS.png",
@@ -23,15 +34,21 @@ const eventTimer = {
             }
         ]
     }
-}
+};
 
-/**
+/*
+ * DATA LOOKUP
+ * Times in hours UTC
+ */
 
-Event timers:
-"NA" or "JP" regions
-set banner to null to ignore
-timer objects should hold:
-- time Number timestamp of event occuering
-- text String Description to display
-
-**/
+const tt = [
+    //PDT -7 (summer) / PST -8 (winter)
+    {"time": 8, "desc": "Event Start Time", "server":"na"},
+    {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
+    {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
+    //JST +9
+    {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
+    {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
+    {"time": 4, "desc": "Maintenance Start Time", "server":"jp"},
+    {"time": 9, "desc": "Maintenance End Time", "server":"jp"}
+];

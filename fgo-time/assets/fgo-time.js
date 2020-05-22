@@ -186,7 +186,7 @@ function ttSetup() {
     $("input[type='checkbox']").on("change", ttToggleDisplay);
 
     //compile events
-    let events = ttNA.concat(ttJP);
+    let events = [].concat(tt);
 
     //convert times
     for (let i in events) {
@@ -352,19 +352,3 @@ function ftApCalcUpdate() {
     settings.targetAp = targetAp;
     settings.currAp = currAp;
 }
-
-/*
- * DATA LOOKUP
- * Times in hours UTC
- */
-
-const ttNA = [//PDT -7 (summer) / PST -8 (winter)
-        {"time": 8, "desc": "Event Start Time", "server":"na"},
-        {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
-        {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
-    ],
-    ttJP = [//JST +9
-        {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
-        {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
-        {"time": 4, "desc": "Maintenance Start Time", "server":"jp"},
-    ];
