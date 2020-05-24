@@ -14,6 +14,9 @@ const eventTimer = {
         "banner": "banner_20200609_ws8t6.png",
         "timer": [
             {
+                "time":1590465600,
+                "text":"Kogetsukan Final Chapter"
+            },{
                 "time":1590566400,
                 "text":"10M DL Campaign Begins"
             },{
