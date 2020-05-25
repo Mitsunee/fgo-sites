@@ -74,7 +74,7 @@ function htmllink($path) {
                     <tfoot>
                         <tr>
                             <td>Hunting Quests rotate at 21PDT everyday</td>
-                            <td>A <a href="https://www.youtube.com/watch?v=02cc0O90sDA&feature=youtu.be">livestream</a> has been announced for May 25, 2020 19:00 ~ JST</td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>

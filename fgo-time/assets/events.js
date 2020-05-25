@@ -29,11 +29,11 @@ const eventTimer = {
         ]
     },
     "JP":{
-        "banner":"EYNZ_2tVAAAAY0Y.png",
+        "banner":"requiem_event_banner.png",
         "timer": [
             {
-                "time":1590400800,
-                "text": "livestream"
+                "time":1591588740,
+                "text": "Fate/Requem Event Ends"
             },{
                 "time":1590937200,
                 "text": "Fate/Requiem Collab Pre-Release Ends"
@@ -55,7 +55,7 @@ const tt = [
     {"time": 8, "desc": "Event Start Time", "server":"na"},
     {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
     {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
-    {"time": 4, "desc": "Event Rotation (Kogetsukan and Hunting Quest)", "server":"na"},
+    {"time": 4, "desc": "Event Rotation (Hunting Quest NA)", "server":"na"},
     //JST +9
     {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
     {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
