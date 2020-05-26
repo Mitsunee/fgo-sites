@@ -14,11 +14,8 @@ const eventTimer = {
         "banner": "banner_20200609_ws8t6.png",
         "timer": [
             {
-                "time":1590465600,
-                "text":"Kogetsukan Final Chapter"
-            },{
                 "time":1590566400,
-                "text":"10M DL Campaign Begins"
+                "text":"10M DL Campaign/Hunting Quest IV Begins"
             },{
                 "time":1590638340,
                 "text": "Okita Banner Ends"
@@ -32,6 +29,13 @@ const eventTimer = {
         "banner":"requiem_event_banner.png",
         "timer": [
             {
+                "time":1590570000,
+                "text":"Fate/Requiem Story Timelock"
+            },{
+                "time":1590742800,
+                "text":"Fate/Requiem 2nd Story Timelock"
+                //timelock 3 : 1590829200
+            },{
                 "time":1591588740,
                 "text": "Fate/Requem Event Ends"
             },{
