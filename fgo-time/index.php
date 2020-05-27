@@ -73,7 +73,7 @@ function htmllink($path) {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Hunting Quests rotate at 21PDT everyday</td>
+                            <td><a href="https://fategrandorder.fandom.com/wiki/Hunting_Quests_Part_IV_(US)">Hunting Quests</a> rotate at 21PDT everyday</td>
                             <td></td>
                         </tr>
                     </tfoot>

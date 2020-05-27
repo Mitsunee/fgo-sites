@@ -17,6 +17,17 @@ const eventTimer = {
                 "time":1590566400,
                 "text":"10M DL Campaign/Hunting Quest IV Begins"
             },{
+                "time":1590638400,
+                //28th: 1590724800
+                //29th: 1590811200
+                //30th: 1590897600
+                //31st: 1590984000
+                //ends: 1591156740
+                "text":"Next Hunting Quest Rotation"
+            },/*{
+                "time":1591761540,
+                "text":"10M DL Campaign Ends"
+            }*/,{
                 "time":1590638340,
                 "text": "Okita Banner Ends"
             },{
