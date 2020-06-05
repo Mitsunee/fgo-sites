@@ -14,14 +14,14 @@ const eventTimer = {
         "banner": "banner_20200616_v5do3.png",
         "timer": [
             {
-                "time":1591156740,
-                "text": "Kogetsukan and Hunting Quests End"
-            },{
-                "time":1591171200,
-                "text": "GUDAGUDA 3 Begins"
+                "time":1591761600,
+                "text": "GUDAGUDA 3 Story Timelock"
             },{
                 "time":1591761540,
                 "text":"10M DL Campaign Ends"
+            },{
+                "time":1592366340,
+                "text": "GUDAGUDA 3 Ends"
             }
         ]
     },
