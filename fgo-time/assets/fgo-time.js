@@ -68,7 +68,6 @@ function init() {
 
     //setup event table
     if (etTableSetup() && settings.showEventTimers !== false) {
-        etTimersUpdate();
         etInterval.start();
     }
     //setup timetable
@@ -97,7 +96,7 @@ function sectionToggleDisplay() {
         section.find(".content").slideDown(200);
         settings["show" + section.data("name")] = true;
         if (section.attr("id") == "events") {
-            etTimersUpdate();
+            etTableSetup(true);
             etInterval.start();
         }
     } else {
@@ -112,19 +111,36 @@ function sectionToggleDisplay() {
  * EVENT TIMER FUNCTIONS
  */
 
-function etTableSetup() {
+async function etTableSetup(updateData) {
+    //pull new data?
+    if (updateData === true) {
+        let newEventData = await asyncRequest("GET", "assets/events.php?json");
+        newEventData = JSON.parse(newEventData);
+        eventTimer = newEventData.eventTimer;
+    }
+
+    //insert banner images
     if (eventTimer.NA.banner !== null) {
         let img = $("<img>").attr("src", "assets/img/" + eventTimer.NA.banner);
+        $("#event-banner-na").empty();
         $("#event-banner-na").append(img);
     }
     if (eventTimer.JP.banner !== null) {
         let img = $("<img>").attr("src", "assets/img/" + eventTimer.JP.banner);
+        $("#event-banner-jp").empty();
         $("#event-banner-jp").append(img);
     }
+
+    //return false if there's no timers
     if (eventTimer.NA.timer.length < 1 && eventTimer.JP.timer.length < 1) return false;
 
+    //how many rows needed?
     let timers = Math.max(eventTimer.NA.timer.length, eventTimer.JP.timer.length);
 
+    //empty tbody before making new lines
+    $("#events table tbody").empty();
+
+    //generate tbody
     for (let i = 0; i < timers; i++) {
         let tr = $("<tr>"),
             na = $("<td>"),
@@ -140,6 +156,9 @@ function etTableSetup() {
         tr.append(na).append(jp);
         $("#events table tbody").append(tr);
     }
+
+    //update Timers and return true
+    etTimersUpdate();
     return true;
 }
 
