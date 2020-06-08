@@ -16,11 +16,11 @@
             ]
         },
         "JP":{
-            "banner":"requiem_event_banner.png",
+            "banner":"summer4_rerun_event_banner.png",
             "timer": [
                 {
-                    "time":1591588740,
-                    "text": "Fate/Requiem Event Ends"
+                    "time":1591606800,
+                    "text": "Summer 4 Rerun Begins"
                 },{
                     "time":1593529140,
                     "text": "Deadline for Free SSR"
