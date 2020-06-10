@@ -29,7 +29,7 @@ function htmllink($path) {
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
     <script src="assets/events.php?js&_=<?php echo filemtime("assets/events.json");?>"></script>
     <script src="<?php htmllink("assets/libs.bundle.js");?>"></script>
-    <script src="<?php htmllink("assets/fgo-time.js");?>"></script>
+    <script src="<?php htmllink("assets/fgo-time.min.js");?>"></script>
 </head>
 <body>
     <header>
@@ -73,8 +73,8 @@ function htmllink($path) {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td id="event-notice-na"></td>
+                            <td id="event-notice-jp"></td>
                         </tr>
                     </tfoot>
                 </table>

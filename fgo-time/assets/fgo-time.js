@@ -92,13 +92,13 @@ function sectionToggleDisplay() {
         section = section.parent();
     }
     if (section.hasClass("section-hidden")) {
-        section.removeClass("section-hidden");
-        section.find(".content").slideDown(200);
-        settings["show" + section.data("name")] = true;
         if (section.attr("id") == "events") {
             etTableSetup(true);
             etInterval.start();
         }
+        section.removeClass("section-hidden");
+        section.find(".content").slideDown(200);
+        settings["show" + section.data("name")] = true;
     } else {
         section.addClass("section-hidden");
         section.find(".content").slideUp(200);
@@ -121,14 +121,42 @@ async function etTableSetup(updateData) {
 
     //insert banner images
     if (eventTimer.NA.banner !== null) {
-        let img = $("<img>").attr("src", "assets/img/" + eventTimer.NA.banner);
+        let src = "assets/img/" + eventTimer.NA.banner,
+            img;
+        if ($("#event-banner-na img").length == 0) {
+            img = $("<img>");
+            $("#event-banner-na").append(img);
+        } else {
+            img = $("#event-banner-na img");
+        }
+        if (img.attr("src") != src) img.attr("src", src);
+    } else {
         $("#event-banner-na").empty();
-        $("#event-banner-na").append(img);
     }
     if (eventTimer.JP.banner !== null) {
-        let img = $("<img>").attr("src", "assets/img/" + eventTimer.JP.banner);
+        let src = "assets/img/" + eventTimer.JP.banner,
+            img;
+        if ($("#event-banner-jp img").length == 0) {
+            img = $("<img>");
+            $("#event-banner-jp").append(img);
+        } else {
+            img = $("#event-banner-jp img");
+        }
+        if (img.attr("src") != src) img.attr("src", src);
+    } else {
         $("#event-banner-jp").empty();
-        $("#event-banner-jp").append(img);
+    }
+
+    //insert notices
+    if (eventTimer.NA.notice !== null) {
+        $("#event-notice-na").html(eventTimer.NA.notice);
+    } else {
+        $("#event-notice-na").empty();
+    }
+    if (eventTimer.JP.notice !== null) {
+        $("#event-notice-jp").html(eventTimer.JP.notice);
+    } else {
+        $("#event-notice-jp").empty();
     }
 
     //return false if there's no timers

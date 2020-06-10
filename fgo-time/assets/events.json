@@ -4,24 +4,19 @@
             "banner": "banner_20200616_v5do3.png",
             "timer": [
                 {
-                    "time":1591761600,
-                    "text": "GUDAGUDA 3 Story Timelock"
-                },{
-                    "time":1591761540,
-                    "text": "10M DL Campaign Ends"
-                },{
                     "time":1592366340,
                     "text": "GUDAGUDA 3 Ends"
                 }
-            ]
+            ],
+            "notice":"It is likely that NA Server will get Lostbelt 2 Götterdämmerung very soon after GUDAGUDA 3, but nothing has been announced yet."
         },
         "JP":{
             "banner":"summer4_rerun_event_banner.png",
             "timer": [
                 {
-                    "time":1591779600,
+                    "time":1591952400,
                     "text": "Summer 4 Story Timelock",
-                    "next": [1591952400,1592125200,1592298000,1592470800,1592643600]
+                    "next": [1592125200,1592298000,1592470800,1592643600]
                 },{
                     "time":1593403140,
                     "text":"Summer 4 Ends"
@@ -29,7 +24,8 @@
                     "time":1593529140,
                     "text": "Deadline for Free SSR"
                 }
-            ]
+            ],
+            "notice":null
         }
     },
     "tt": [
