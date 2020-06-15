@@ -6,17 +6,20 @@
                 {
                     "time":1592366340,
                     "text": "GUDAGUDA 3 Ends"
+                },{
+                    "time":1592366400,
+                    "text":"Interlude Campaign VI"
                 }
             ],
-            "notice":"It is likely that NA Server will get Lostbelt 2 Götterdämmerung very soon after GUDAGUDA 3, but nothing has been announced yet."
+            "notice":"* It is likely that NA Server will get Lostbelt 2 Götterdämmerung very soon after GUDAGUDA 3, but nothing has been announced yet. The time shown is a rumor."
         },
         "JP":{
             "banner":"summer4_rerun_event_banner.png",
             "timer": [
                 {
-                    "time":1591952400,
+                    "time":1592298000,
                     "text": "Summer 4 Story Timelock",
-                    "next": [1592125200,1592298000,1592470800,1592643600]
+                    "next": [1592470800,1592643600]
                 },{
                     "time":1593403140,
                     "text":"Summer 4 Ends"
@@ -32,7 +35,6 @@
         {"time": 8, "desc": "Event Start Time", "server":"na"},
         {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
         {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
-        {"time": 4, "desc": "Event Rotation (Hunting Quest NA)", "server":"na"},
         {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
         {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
         {"time": 4, "desc": "Maintenance Start Time", "server":"jp"},
