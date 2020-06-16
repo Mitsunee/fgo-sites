@@ -6,7 +6,7 @@ Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
 
 ## Current status:
 
-![Version](https://img.shields.io/badge/stable-1.1.5-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
+![Version](https://img.shields.io/badge/stable-1.1.5.1-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
 
 
 # Built using:
@@ -17,6 +17,8 @@ Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
 
 # Changelog:
 
+- 1.1.5.1
+    - updated jquery to 3.5.1
 - 1.1.5
     - Improved the way the banner image is updated and moved notices, so they also get updated when unhiding the Events section
 - 1.1.4
