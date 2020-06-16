@@ -148,7 +148,7 @@ function htmllink($path) {
                         </td>
                     </tr>
                 </table>
-                <p>Any problems? <a href="https://github.com/Mitsunee/fgo-time/issues">Report Bugs/Issues on Github</a> or join <a href="https://discord.gg/ZncPkjw">the Neko-Castle Discord server</a>.
+                <p>Any problems? <a href="https://github.com/Mitsunee/fgo-time/issues">Report Bugs/Issues on Github</a> or join <a href="https://discord.gg/ZncPkjw">the Neko-Castle Discord server</a>.</p>
             </div>
         </section>
     </main>
