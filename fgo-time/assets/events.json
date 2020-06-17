@@ -1,17 +1,14 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "banner_20200616_v5do3.png",
+            "banner": "banner_20200616_or0v5.png",
             "timer": [
                 {
-                    "time":1592366340,
-                    "text": "GUDAGUDA 3 Ends"
-                },{
-                    "time":1592366400,
-                    "text":"Interlude Campaign VI"
+                    "time":1592971140,
+                    "text":"Interlude Campaign VI Ends"
                 },{
                     "time":1592874000,
-                    "text":"LB2 Annonucement Livestream"
+                    "text":"LB2 Announcement Livestream"
                 }
             ],
             "notice":"<a href=\"https://twitter.com/FateGO_USA/status/1272589780082020352\">Livestream Information and RT Campaign here</a>"
