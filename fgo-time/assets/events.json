@@ -1,9 +1,12 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "banner_20200616_or0v5.png",
+            "banner": "banner_20200702_v9xk9.png",
             "timer": [
                 {
+                    "time":1592539200,
+                    "text":"Götterdämmerung Pre-Release Begins"
+                },{
                     "time":1592971140,
                     "text":"Interlude Campaign VI Ends"
                 },{
