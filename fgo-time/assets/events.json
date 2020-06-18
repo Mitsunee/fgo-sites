@@ -20,9 +20,8 @@
             "banner":"summer4_rerun_event_banner.png",
             "timer": [
                 {
-                    "time":1592470800,
-                    "text": "Summer 4 Story Timelock",
-                    "next": 1592643600
+                    "time":1592643600,
+                    "text": "Summer 4 Final Story Timelock"
                 },{
                     "time":1593403140,
                     "text":"Summer 4 Ends"
