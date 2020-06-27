@@ -1,28 +1,25 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "banner_20200702_v9xk9.png",
+            "banner": "banner_1100d.png",
             "timer": [
                 {
-                    "time":1592539200,
-                    "text":"Götterdämmerung Pre-Release Begins"
+                    "time":1593403200,
+                    "text":"1100 Day Anniversary"
                 },{
-                    "time":1592971140,
-                    "text":"Interlude Campaign VI Ends"
+                    "time":1593748740,
+                    "text":"Deadline for LB1 Clear Bonus*"
                 },{
-                    "time":1592874000,
-                    "text":"LB2 Announcement Livestream"
+                    "time":1594079940,
+                    "text":"LB2 Banner Ends"
                 }
             ],
-            "notice":"<a href=\"https://twitter.com/FateGO_USA/status/1272589780082020352\">Livestream Information and RT Campaign here</a>"
+            "notice":"* = LB2 Pre-Release Campaign rewards 10sq for clearing LB1"
         },
         "JP":{
             "banner":"summer4_rerun_event_banner.png",
             "timer": [
                 {
-                    "time":1592643600,
-                    "text": "Summer 4 Final Story Timelock"
-                },{
                     "time":1593403140,
                     "text":"Summer 4 Ends"
                 },{
