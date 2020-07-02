@@ -1,11 +1,14 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "banner_20200702_v9xk9.png",
+            "banner": "banner_bunyan.png",
             "timer": [
                 {
                     "time":1593748740,
                     "text":"Deadline for LB1 Clear Bonus*"
+                },{
+                    "time":1593835200,
+                    "text":"Statesman Rerun Begins"
                 },{
                     "time":1594079940,
                     "text":"LB2 Banner Ends"
