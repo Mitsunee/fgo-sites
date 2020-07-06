@@ -1,6 +1,8 @@
 <?php
 
-$format = "F j, Y H:i T";
+$formatWiki = "F j, Y H:i T";
+$formatNA = "Y\-m\-d H:i T";
+$formatJP = "Y年n月j日 G:i";
 
 //Handle arguments
 if (!isset($argv)) {
@@ -15,16 +17,51 @@ if (
     in_array("-help", $argv) ||
     in_array("--help", $argv)
 ) {
-    echo "make-timestamp [string]".PHP_EOL;
-    echo "Format must be: ".$format.PHP_EOL;
+    echo "make-timestamp [format] [string]".PHP_EOL;
+    echo "format:".PHP_EOL;
+    echo "\twiki: ".$formatWiki.PHP_EOL;
+    echo "\tna: ".$formatNA.PHP_EOL;
+    echo "\tjp: ".$formatJP." (timezone is added automatically for JP)".PHP_EOL;
     die;
 }
 
 $timestring = "";
-for($i=1; $i<count($argv); $i++) {
-    if($i > 1) $timestring .= " ";
-    $timestring .= $argv[$i];
+$startedString = false;
+foreach ($argv as $a) {
+    if ($startedString) {
+        if($timestring != "") {
+            $timestring .= " ";
+        }
+        $timestring .= $a;
+    } else {
+        switch ($a) {
+            case "wiki":
+                $format = $formatWiki;
+                echo "Using wiki format".PHP_EOL;
+                $startedString = true;
+                break;
+            case "na":
+                $format = $formatNA;
+                echo "Using NA format".PHP_EOL;
+                $startedString = true;
+                break;
+            case "jp":
+                $format = $formatJP;
+                echo "Using jp format".PHP_EOL;
+                $startedString = true;
+                break;
+            default:
+                continue;
+                break;
+        }
+    }
 }
-$date = DateTime::createFromFormat($format, $timestring);
-echo $date->format('U').PHP_EOL;
+echo "Input:  ".$timestring.PHP_EOL;
+echo "Format: ".$format.PHP_EOL;
+if($format == $formatJP) {
+    $date = DateTime::createFromFormat($format." T", $timestring." JST");
+} else {
+    $date = DateTime::createFromFormat($format, $timestring);
+}
+echo "Output: ".$date->format('U').PHP_EOL;
 ?>
