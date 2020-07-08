@@ -1,31 +1,25 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "banner_bunyan.png",
+            "banner": "ThirdAnniversaryBannerUS.png",
             "timer": [
                 {
-                    "time":1593748740,
-                    "text":"Deadline for LB1 Clear Bonus*"
+                    "time":1595044740,
+                    "text":"Statesmen Rerun Ends"
                 },{
-                    "time":1593835200,
-                    "text":"Statesman Rerun Begins"
+                    "time":1595303940,
+                    "text":"Skadi Banner Ends"
                 },{
-                    "time":1594079940,
-                    "text":"LB2 Banner Ends"
-                },{
-                    "time":1594090800,
-                    "text":"Anniversary Stream"
+                    "time":1595476740,
+                    "text":"Anniversary Campaign Ends"
                 }
             ],
-            "notice":"* = LB2 Pre-Release Campaign rewards 10sq for clearing LB1<br>More info on the Livestream <a href=\"https://twitter.com/FateGO_USA/status/1276606241578442752\">on Twitter.</a>"
+            "notice":"Statesmen Timelock: everyday at 21 PDT"
         },
         "JP":{
             "banner":"Interlude13.png",
             "timer": [
                 {
-                    "time":1593529140,
-                    "text": "Deadline for Free SSR"
-                },{
                     "time":1594180740,
                     "text":"Interlude Campaign 13 Ends"
                 }
