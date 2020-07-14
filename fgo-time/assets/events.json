@@ -1,9 +1,12 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "ThirdAnniversaryBannerUS.png",
+            "banner": "summer2re.png",
             "timer": [
                 {
+                    "time":1594972800,
+                    "text":"Summer 2 Rerun Begins"
+                },{
                     "time":1595044740,
                     "text":"Statesmen Rerun Ends"
                 },{
@@ -17,11 +20,11 @@
             "notice":"Statesmen Timelock: everyday at 21 PDT"
         },
         "JP":{
-            "banner":"Interlude13.png",
+            "banner":"jphq8.png",
             "timer": [
                 {
-                    "time":1594180740,
-                    "text":"Interlude Campaign 13 Ends"
+                    "time":1594785540,
+                    "text":"Hunting Quests End"
                 }
             ],
             "notice":null
