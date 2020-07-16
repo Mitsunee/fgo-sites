@@ -20,11 +20,11 @@
             "notice":"Statesmen Timelock: everyday at 21 PDT"
         },
         "JP":{
-            "banner":"jphq8.png",
+            "banner":"SERAPHMainInterludeCampaign.png",
             "timer": [
                 {
-                    "time":1594785540,
-                    "text":"Hunting Quests End"
+                    "time":1595390340,
+                    "text":"Free CCC Main Interlude Deadline"
                 }
             ],
             "notice":null
