@@ -4,33 +4,27 @@
             "banner": "summer2re.png",
             "timer": [
                 {
-                    "time":1594972800,
-                    "text":"Summer 2 Rerun Begins"
-                },{
-                    "time":1595044740,
-                    "text":"Statesmen Rerun Ends"
-                },{
-                    "time":1595303940,
-                    "text":"Skadi Banner Ends"
-                },{
                     "time":1595476740,
                     "text":"Anniversary Campaign Ends"
-                }
-            ],
-            "notice":"Statesmen Timelock: everyday at 21 PDT"
-        },
-        "JP":{
-            "banner":"SERAPHMainInterludeCampaign.png",
-            "timer": [
-                {
-                    "time":1595390340,
-                    "text":"Free CCC Main Interlude Deadline"
                 },{
-                    "time":1595408400,
-                    "text":"Tokugawa Kaiten Meikyū - Ōoku Rerun"
+                    "time":1595563200,
+                    "text":"Summer 2 Rerun Part 2"
                 }
             ],
             "notice":null
+        },
+        "JP":{
+            "banner":"kamaEventRerunJP.png",
+            "timer": [
+                {
+                    "time":1595840400,
+                    "text":"Tokugawa Kaiten Meikyū - Ōoku Final Timelock"
+                },{
+                    "time":,
+                    "text":"Tokugawa Kaiten Meikyū - Ōoku Ends"
+                }
+            ],
+            "notice":"Event Story Timelocks daily at 18JST (see timetable below)"
         }
     },
     "tt": [
