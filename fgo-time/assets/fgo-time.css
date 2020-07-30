@@ -22,6 +22,9 @@ body {
     font-weight: 400;
 }
 
+/*
+ * SECTIONS
+ */
 section {
     width: 100%;
     display: block;
@@ -32,36 +35,26 @@ section > .content {
     padding: 1.26vw;
     padding-top: 0px;
 }
-
-section + section {
-    margin-top: 1em;
-}
-
+section + section {margin-top: 1em}
 h1 {
     margin: 0;
     padding: 0;
     font-family: Dosis, sans-serif;
     font-weight: 700;
 }
-
 h2 {
     margin: 0;
     padding: 0;
     font-family: Dosis, sans-serif;
     font-weight: 700;
 }
+p.center {text-align: center}
+main a {color: white}
 
-p.center {
-    text-align: center;
-}
-
-main a {
-    color: white;
-}
-
-header section {
-    padding: 24px;
-}
+/*
+ * HEADER
+ */
+header section {padding: 24px}
 header img {
     float: left;
     width: 64px;
@@ -70,39 +63,30 @@ header img {
     position:relative;
     top: 5px;
 }
+header h1 {font-size: 42px}
+header h2 {font-size: 16px}
 
-header h1 {
-    font-size: 42px;
-}
-
-header h2 {
-    font-size: 16px;
-}
-
+/*
+ * RESPONSIVE HEADINGS AND CLOCKS
+ */
 #clocks {
     max-width: 100%;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
 }
-
 .clock {
     display: inline-block;
     width: 33%;
     margin: 1% 0;
 }
-
-.clock h1 {
-    font-size: 1.4vw;
-}
-
+.clock h1 {font-size: 1.4vw}
 .clock h2 {
     font-family: "Overpass Mono", monospace;
     width: 100%;
     font-size: 2.25vw;
     font-weight: 400;
 }
-
 main section>h1{
     padding: 0.9em;
     font-size: 1.4vw;
@@ -124,18 +108,10 @@ main section>h1:hover,
 main section>h1:hover::after {
     text-shadow: 1px 1px 6px rgba(255,255,255,.44);
 }
-
-
 @media (max-width: 1280px) {
-    .clock h1 {
-        font-size: 17.92px;
-    }
-    .clock h2 {
-        font-size: 28.8px;
-    }
-    main section>h1 {
-        font-size: 17.92px;
-    }
+    .clock h1 {font-size: 17.92px}
+    .clock h2 {font-size: 28.8px}
+    main section>h1 {font-size: 17.92px}
     section > .content {
         padding: 16.128px;
         padding-top: 0;
@@ -151,74 +127,38 @@ main section>h1:hover::after {
     margin: auto;
     border-collapse: collapse;
 }
-
-#events table tr>th {
-    background: rgba(0,0,0,.44);
-}
-
+#events table tr>th {background: rgba(0,0,0,.44)}
 #events img {
     width: 99%;
     height: auto;
 }
-
 #events table td {
     text-align: center;
     width: 50%;
 }
-
-#events.timers-monospace table tbody td span.timer {
-    font-family: "Overpass Mono", monospace;
-}
+#events.timers-monospace table tbody td span.timer {font-family: "Overpass Mono", monospace}
 
 /*
  * TIME TABLE
  */
-#time-table input[type='checkbox'] {
-    display:none;
-}
-
-#time-table label {
-    user-select: none;
-}
-
-#time-table input[type='checkbox'] + label::before {
-    display: inline-block;
-    background-color: red;
-    border-radius: .5em;
-    width: 1em;
-    height: 1em;
-    margin: 0px 4px;
-    content: '';
-}
-
-#time-table input[type='checkbox']:checked + label::before {
-    background-color: green;
-}
-
 #time-table table {
     width: 100%;
     max-width: 1000px;
     margin: auto;
     border-collapse: collapse;
 }
-
 #time-table table tr>th,
 #time-table table tbody>tr:hover>td {
     background: rgba(0,0,0,.44);
 }
-
 #time-table table tbody tr>td:nth-child(1),
 #time-table table tbody tr>td:nth-child(2) {
     font-family: "Overpass Mono", monospace;
 }
-
-#time-table table tbody tr>td:not(:last-of-type) {
-    text-align: center;
-}
-
-#time-table table tbody tr>td:nth-child(1) {width: 89px;}
-#time-table table tbody tr>td:nth-child(2) {width: 99px;}
-#time-table table tbody tr>td:nth-child(3) {width: 55px;}
+#time-table table tbody tr>td:not(:last-of-type) {text-align: center}
+#time-table table tbody tr>td:nth-child(1) {width: 89px}
+#time-table table tbody tr>td:nth-child(2) {width: 99px}
+#time-table table tbody tr>td:nth-child(3) {width: 55px}
 
 /*
  * AP CALC
@@ -229,7 +169,6 @@ main section>h1:hover::after {
     margin: auto;
     border-collapse: collapse;
 }
-
 #ap-calc input[type="number"] {
     background-color: #1e1c5a;
     color: #fff;
@@ -240,15 +179,11 @@ main section>h1:hover::after {
     border-radius: .44em;
     width: 64px;
 }
-
 #ap-calc table tr:first-of-type > td:last-of-type {
     font-size: 18px;
     text-align: center;
 }
-
-#ap-calc table .output {
-    width: 75%;
-}
+#ap-calc table .output {width: 75%}
 
 /*
  * LINKS
@@ -259,14 +194,8 @@ main section>h1:hover::after {
     margin: auto;
     border-collapse: collapse;
 }
-
-#links table tr>th {
-    background: rgba(0,0,0,.44);
-}
-
-#links table td {
-    vertical-align: top;
-}
+#links table tr>th {background: rgba(0,0,0,.44)}
+#links table td {vertical-align: top}
 
 /*
  * RADIO INPUTS
@@ -295,12 +224,8 @@ main section>h1:hover::after {
     border-top-right-radius: .44em;
     border-bottom-right-radius: .44em;
 }
-.radio-wrapper input:not(:checked) + label {
-    background-image: linear-gradient(to top, #0e1621, transparent 50%);
-}
-.radio-wrapper input:not(:checked) + label:not(:hover) {
-    opacity: 0.55;
-}
+.radio-wrapper input:not(:checked) + label {background-image: linear-gradient(to top, #0e1621, transparent 50%)}
+.radio-wrapper input:not(:checked) + label:not(:hover) {opacity: 0.55}
 .radio-wrapper input:checked + label {
     color: #FD0;
     background-image: linear-gradient(to bottom, #314c73, transparent 50%);
@@ -382,6 +307,4 @@ nav button.nav-button {
     font-size: 24px;
     color: white;
 }
-nav button#nav-button-settings {
-    background-image: url('img/icons/settings.png');
-}
+nav button#nav-button-settings {background-image: url('img/icons/settings.png')}
