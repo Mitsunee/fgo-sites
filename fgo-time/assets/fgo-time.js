@@ -24,7 +24,8 @@ function init() {
             "showEventTimers":true,
             "showTimeTable":true,
             "showApCalc":true,
-            "showLinks":true
+            "showLinks":true,
+            "timerFormat":"colon"
         };
     } else {
         settings = JSON.parse(settings);
@@ -35,6 +36,9 @@ function init() {
     if (settings.showEventTimers === false) {
         $("#events").addClass("section-hidden");
         $("#events > .content").hide();
+    }
+    if (settings.timerFormat == "colon") {
+        $("#events").addClass("timers-monospace");
     }
     if (settings.showTimeTable === false) {
         $("#time-table").addClass("section-hidden");
@@ -47,13 +51,6 @@ function init() {
     if (settings.showLinks === false) {
         $("#links").addClass("section-hidden");
         $("#links > .content").hide();
-    }
-    //TimeTable Settings
-    if (settings.showNa === false) {
-        $("#show-na").prop("checked", false);
-    }
-    if (settings.showJp === false) {
-        $("#show-jp").prop("checked", false);
     }
     //AP Calc settings
     if (settings.maxAp) {
@@ -78,6 +75,7 @@ function init() {
     //attach onclick functions
     $("main section > h1").on("click", sectionToggleDisplay);
     $("#ap-calc input").on("input", ftApCalcUpdate);
+    $("#nav-button-settings").on("click", openSettingsMenu);
     //show site
     $("main").show();
     $("#loading").hide();
@@ -206,7 +204,7 @@ function etTimersUpdate() {
 function etCalcTimer(goalTime) {
     let difference = goalTime - (0| Date.now() / 1000);
     if (difference <= 0) {
-        return "00:00:00:00";
+        return (settings.timerFormat == "colon" ? "00:00:00:00" : "0d 0h 0m 0s");
     } else {
         let s = difference;
         //days
@@ -219,7 +217,12 @@ function etCalcTimer(goalTime) {
         let m = 0| s / 60;
         s = s % 60;
         //build string and return
-        let t = (d < 10 ? "0" : "") + String(d) + ":" + (h < 10 ? "0" : "") + String(h) + ":" + (m < 10 ? "0" : "") + String(m) + ":" + (s < 10 ? "0" : "") + String(s);
+        let t;
+        if (settings.timerFormat == "colon") {
+            t = (d < 10 ? "0" : "") + String(d) + ":" + (h < 10 ? "0" : "") + String(h) + ":" + (m < 10 ? "0" : "") + String(m) + ":" + (s < 10 ? "0" : "") + String(s);
+        } else {
+            t = String(d) + "d " + String(h) + "h " + String(m) + "m " + String(s) + "s";
+        }
         return t;
     }
 }
@@ -398,4 +401,142 @@ function ftApCalcUpdate() {
     settings.maxAp = maxAp;
     settings.targetAp = targetAp;
     settings.currAp = currAp;
+}
+
+/*
+ * MODALS
+ */
+function makeModalBox() {
+    let modal = $("<div/>").addClass("modal-box"),
+        modalClose = $("<button>").addClass("button-cancel").on("click", destroyModal);
+    modal.append(modalClose);
+    return modal;
+}
+
+function openModal(modalBox) {
+    let modals = $("#modals");
+    modals.append(modalBox);
+    modals.show();
+    $("body").css("overflow", "hidden");
+}
+
+function destroyModal() {
+    let modals = $("#modals");
+    modals.find(".modal-box").remove();
+    modals.hide();
+    $("body").css("overflow", "visible");
+}
+
+function openSettingsMenu() {
+    let modal = makeModalBox();
+    modal.append($("<h1/>").html("Settings"));
+
+    //Section: Event Timers
+    modal.append($("<h2>").html("Event Timers"));
+
+    //Timer Format Setting
+    modal.append($("<div/>").css({"margin": "0.5em 0"}).html("Timer Formats:"))
+    let div = $("<div/>").addClass("radio-wrapper");
+    //Option: colons
+    div.append($("<input/>").attr({
+        "type": "radio",
+        "name": "settings-event-timer-format",
+        "id": "event-timer-format-colons"
+    })).append($("<label/>").html("Colons").attr({
+        "for": "event-timer-format-colons"
+    }).on("click", function(){
+        settings.timerFormat = "colon";
+        $("#events").addClass("timers-monospace");
+        etTimersUpdate();
+    }));
+    //Option: units
+    div.append($("<input/>").attr({
+        "type": "radio",
+        "name": "settings-event-timer-format",
+        "id": "event-timer-format-units"
+    })).append($("<label/>").html("Units").attr({
+        "for": "event-timer-format-units"
+    }).on("click", function(){
+        settings.timerFormat = "unit";
+        $("#events").removeClass("timers-monospace");
+        etTimersUpdate();
+    }));
+    //default
+    if (settings.timerFormat == "colon") {
+        div.find("#event-timer-format-colons").prop("checked", true);
+    } else {
+        div.find("#event-timer-format-units").prop("checked", true);
+    }
+    modal.append(div);
+
+    //Section: Time Table
+    modal.append($("<h2>").html("Time Table"));
+
+    //Show NA Setting
+    modal.append($("<div/>").css({"margin": "0.5em 0"}).html("Show NA Times:"))
+    div = $("<div/>").addClass("radio-wrapper");
+    //Option: Yes
+    div.append($("<input/>").attr({
+        "type": "radio",
+        "name": "settings-show-na-times",
+        "id": "show-na-times-yes"
+    })).append($("<label/>").html("Yes").attr({
+        "for": "show-na-times-yes"
+    }).on("click", function(){
+        settings.showNa = true;
+        ttUpdateFilter();
+    }));
+    //Option: No
+    div.append($("<input/>").attr({
+        "type": "radio",
+        "name": "settings-show-na-times",
+        "id": "show-na-times-no"
+    })).append($("<label/>").html("No").attr({
+        "for": "show-na-times-no"
+    }).on("click", function(){
+        settings.showNa = false;
+        ttUpdateFilter();
+    }));
+    //default
+    if (settings.showNa) {
+        div.find("#show-na-times-yes").prop("checked", true);
+    } else {
+        div.find("#show-na-times-no").prop("checked", true);
+    }
+    modal.append(div);
+
+    //Show JP Setting
+    modal.append($("<div/>").css({"margin": "0.5em 0"}).html("Show JP Times:"))
+    div = $("<div/>").addClass("radio-wrapper");
+    //Option: Yes
+    div.append($("<input/>").attr({
+        "type": "radio",
+        "name": "settings-show-jp-times",
+        "id": "show-jp-times-yes"
+    })).append($("<label/>").html("Yes").attr({
+        "for": "show-jp-times-yes"
+    }).on("click", function(){
+        settings.showJp = true;
+        ttUpdateFilter();
+    }));
+    //Option: No
+    div.append($("<input/>").attr({
+        "type": "radio",
+        "name": "settings-show-jp-times",
+        "id": "show-jp-times-no"
+    })).append($("<label/>").html("No").attr({
+        "for": "show-jp-times-no"
+    }).on("click", function(){
+        settings.showJp = false;
+        ttUpdateFilter();
+    }));
+    //default
+    if (settings.showJp) {
+        div.find("#show-jp-times-yes").prop("checked", true);
+    } else {
+        div.find("#show-jp-times-no").prop("checked", true);
+    }
+    modal.append(div);
+
+    openModal(modal);
 }

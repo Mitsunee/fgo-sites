@@ -84,7 +84,6 @@ function htmllink($path) {
             <h1>Time Table</h1>
             <div class="content">
                 <p>This is a list of commonly used times. They may differ for events and banners, please double check with the official news channels. All listed times are in 24h-formatting.</p>
-                <p class="center"><input type="checkbox" name="show-na" id="show-na" checked><label for="show-na">Show NA Server Times</label> | <input type="checkbox" name="show-jp" id="show-jp" checked><label for="show-jp">Show JP Server Times</p>
                 <table>
                     <thead>
                         <tr>
@@ -152,4 +151,6 @@ function htmllink($path) {
             </div>
         </section>
     </main>
+    <div id="modals"></div>
+    <nav><button class="nav-button" id="nav-button-settings">Settings</button></nav>
 </body>

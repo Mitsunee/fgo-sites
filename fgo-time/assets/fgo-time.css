@@ -142,6 +142,9 @@ main section>h1:hover::after {
     }
 }
 
+/*
+ * EVENTS
+ */
 #events table {
     width: 100%;
     max-width: 1000px;
@@ -163,10 +166,13 @@ main section>h1:hover::after {
     width: 50%;
 }
 
-#events table tbody td span.timer {
+#events.timers-monospace table tbody td span.timer {
     font-family: "Overpass Mono", monospace;
 }
 
+/*
+ * TIME TABLE
+ */
 #time-table input[type='checkbox'] {
     display:none;
 }
@@ -214,6 +220,9 @@ main section>h1:hover::after {
 #time-table table tbody tr>td:nth-child(2) {width: 99px;}
 #time-table table tbody tr>td:nth-child(3) {width: 55px;}
 
+/*
+ * AP CALC
+ */
 #ap-calc table {
     width: 100%;
     max-width: 1000px;
@@ -241,6 +250,9 @@ main section>h1:hover::after {
     width: 75%;
 }
 
+/*
+ * LINKS
+ */
 #links table {
     width: 100%;
     max-width: 1000px;
@@ -254,4 +266,122 @@ main section>h1:hover::after {
 
 #links table td {
     vertical-align: top;
+}
+
+/*
+ * RADIO INPUTS
+ */
+.radio-wrapper {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1em;
+    white-space: nowrap;
+}
+.radio-wrapper input {display:none}
+.radio-wrapper label {
+    margin: 0;
+    background-color: #1e1c5a;
+    color: #fff;
+    padding: 0.25em 0.33em;
+    font-size: inherit;
+    font-family: "Noto Sans", sans-serif;
+    border: 1px solid #806c2b;
+}
+.radio-wrapper label:first-of-type {
+    border-top-left-radius: .44em;
+    border-bottom-left-radius: .44em;
+}
+.radio-wrapper label:last-of-type {
+    border-top-right-radius: .44em;
+    border-bottom-right-radius: .44em;
+}
+.radio-wrapper input:not(:checked) + label {
+    background-image: linear-gradient(to top, #0e1621, transparent 50%);
+}
+.radio-wrapper input:not(:checked) + label:not(:hover) {
+    opacity: 0.55;
+}
+.radio-wrapper input:checked + label {
+    color: #FD0;
+    background-image: linear-gradient(to bottom, #314c73, transparent 50%);
+}
+
+/*
+ * MODALS
+ */
+#modals {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    padding: 1em;
+    background-color: #1e1c5a;
+    border: 1px solid #806c2b;
+    border-radius: 2em;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, .44);
+}
+.modal-buttons {
+    width: 100%;
+    text-align: right;
+}
+.modal-buttons > button {
+    margin-top: 0.5em;
+    display: inline-block;
+}
+.modal-buttons > button + button {margin-left: 1em}
+button.button-cancel {
+    font-size: inherit;
+    border-radius: .44em;
+    display: block;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    background-color: transparent;
+    background-image: url('img/icons/close.png');
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 0;
+    float: right;
+    position: relative;
+}
+button.button-cancel:hover {box-shadow: 1px 1px 6px rgba(255, 221, 0, .44)}
+
+/*
+ * NAVIGATION
+ */
+nav {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    padding: 2px;
+    padding-left: 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 36px 12px;
+}
+nav button.nav-button {
+    border: 0;
+    background-color: transparent;
+    margin: auto;
+    padding-left: 32px;
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position-x: 4px;
+    background-position-y: center;
+    font-family: "Dosis", sans-serif;
+    font-size: 24px;
+    color: white;
+}
+nav button#nav-button-settings {
+    background-image: url('img/icons/settings.png');
 }

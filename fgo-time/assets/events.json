@@ -4,14 +4,14 @@
             "banner": "summer2re.png",
             "timer": [
                 {
-                    "time":1595476740,
-                    "text":"Anniversary Campaign Ends"
-                },{
                     "time":1595563200,
                     "text":"Summer 2 Rerun Part 2"
+                },{
+                    "time":1596340740,
+                    "text":"Summer 2 Ends"
                 }
             ],
-            "notice":null
+            "notice":"CQs are available now!"
         },
         "JP":{
             "banner":"kamaEventRerunJP.png",
@@ -20,8 +20,11 @@
                     "time":1595840400,
                     "text":"Tokugawa Kaiten Meikyū - Ōoku Final Timelock"
                 },{
-                    "time":,
+                    "time":1596599940,
                     "text":"Tokugawa Kaiten Meikyū - Ōoku Ends"
+                },{
+                    "time":1597041000,
+                    "text":"Anniversary Livestream"
                 }
             ],
             "notice":"Event Story Timelocks daily at 18JST (see timetable below)"

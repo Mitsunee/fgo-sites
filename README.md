@@ -6,7 +6,7 @@ Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
 
 ## Current status:
 
-![Version](https://img.shields.io/badge/stable-1.1.5.1-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
+![Version](https://img.shields.io/badge/stable-1.2-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
 
 
 # Built using:
@@ -17,6 +17,10 @@ Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
 
 # Changelog:
 
+- 1.2
+    - added settings menu
+    - added setting for timer formats
+    - moved setting for time table filters to settings menu
 - 1.1.5.1
     - updated jquery to 3.5.1
 - 1.1.5
