@@ -151,6 +151,6 @@ function htmllink($path) {
             </div>
         </section>
     </main>
-    <div id="modals"></div>
     <nav><button class="nav-button" id="nav-button-settings">Settings</button></nav>
+    <div id="modals"></div>
 </body>
