@@ -1,33 +1,30 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "summer2re.png",
+            "banner": "nasummer3.png",
             "timer": [
                 {
-                    "time":1595563200,
-                    "text":"Summer 2 Rerun Part 2"
+                    "time":1597626000,
+                    "text":"Summer 3 Timelock"
                 },{
-                    "time":1596340740,
-                    "text":"Summer 2 Ends"
+                    "time":1598155140,
+                    "text":"Summer 3 Ends"
                 }
             ],
-            "notice":"CQs are available now!"
+            "notice":null
         },
         "JP":{
-            "banner":"kamaEventRerunJP.png",
+            "banner":"underthesamesky1.png",
             "timer": [
                 {
-                    "time":1595840400,
-                    "text":"Tokugawa Kaiten Meikyū - Ōoku Final Timelock"
-                },{
-                    "time":1596599940,
-                    "text":"Tokugawa Kaiten Meikyū - Ōoku Ends"
-                },{
                     "time":1597041000,
                     "text":"Anniversary Livestream"
+                },{
+                    "time":1598414340,
+                    "text":"Under The Same Sky Ends"
                 }
             ],
-            "notice":"Event Story Timelocks daily at 18JST (see timetable below)"
+            "notice":"New Rankups unlock daily at 18JST until 10th"
         }
     },
     "tt": [
