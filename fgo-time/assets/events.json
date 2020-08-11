@@ -4,27 +4,30 @@
             "banner": "nasummer3.png",
             "timer": [
                 {
+                    "time":1597032000,
+                    "text":"Summer 3 Timelock?"
+                },{
                     "time":1597626000,
-                    "text":"Summer 3 Timelock"
+                    "text":"Summer 3 Timelock?"
                 },{
                     "time":1598155140,
                     "text":"Summer 3 Ends"
                 }
             ],
-            "notice":null
+            "notice":"Timelock data was not in the newspost, so I'm relying on what people tell me..."
         },
         "JP":{
-            "banner":"underthesamesky1.png",
+            "banner":"jpanni5.png",
             "timer": [
                 {
-                    "time":1597041000,
-                    "text":"Anniversary Livestream"
+                    "time":1598241540,
+                    "text":"Anniversary Campaign Ends"
                 },{
                     "time":1598414340,
-                    "text":"Under The Same Sky Ends"
+                    "text":"Pre-Broadcast Campaign Ends"
                 }
             ],
-            "notice":"New Rankups unlock daily at 18JST until 10th"
+            "notice":null
         }
     },
     "tt": [
