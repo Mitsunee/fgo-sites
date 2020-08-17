@@ -40,6 +40,8 @@
         {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
         {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
         {"time": 4, "desc": "Maintenance Start Time", "server":"jp"},
-        {"time": 9, "desc": "Maintenance End Time", "server":"jp"}
+        {"time": 9, "desc": "Maintenance End Time", "server":"jp"},
+        {"time": 1, "desc": "Summer 5 Daytime", "server":"jp"},
+        {"time": 11, "desc": "Summer 5 Nighttime", "server":"jp"}
     ]
 }
