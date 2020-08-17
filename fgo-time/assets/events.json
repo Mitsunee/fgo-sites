@@ -4,30 +4,27 @@
             "banner": "nasummer3.png",
             "timer": [
                 {
-                    "time":1597032000,
-                    "text":"Summer 3 Timelock?"
-                },{
-                    "time":1597626000,
-                    "text":"Summer 3 Timelock?"
-                },{
                     "time":1598155140,
                     "text":"Summer 3 Ends"
                 }
             ],
-            "notice":"Timelock data was not in the newspost, so I'm relying on what people tell me..."
+            "notice":null
         },
         "JP":{
             "banner":"jpsummer5.png",
             "timer": [
                 {
-                    "time":1597654800,
-                    "text":"Summer 5 Begins"
-                },{
                     "time":1598241540,
                     "text":"Anniversary Campaign Ends"
                 },{
+                    "time":1598266800,
+                    "text":"Summer 3 Timelock?"
+                },{
                     "time":1598414340,
                     "text":"Pre-Broadcast Campaign Ends"
+                },{
+                    "time":1599451140,
+                    "text":"Summer 5 Ends"
                 },{
                     "time":1599836340,
                     "text":"HF3 Campaign Ends"
