@@ -8,7 +8,7 @@
                     "text":"Summer 3 Ends"
                 }
             ],
-            "notice":null
+            "notice":"Dead Week with Download Campaign expected next."
         },
         "JP":{
             "banner":"jpsummer5.png",
@@ -18,19 +18,13 @@
                     "text":"Anniversary Campaign Ends"
                 },{
                     "time":1598266800,
-                    "text":"Summer 3 Timelock?"
-                },{
-                    "time":1598414340,
-                    "text":"Pre-Broadcast Campaign Ends"
+                    "text":"Summer 5 Timelock?"
                 },{
                     "time":1599451140,
                     "text":"Summer 5 Ends"
-                },{
-                    "time":1599836340,
-                    "text":"HF3 Campaign Ends"
                 }
             ],
-            "notice":null
+            "notice":"Due to Aniplex' policy changes I will be quitting JP FGO and thus not updating the JP section anymore. I will keep it up until Summer 5 ends. The upcoming Account Manager will ofc support JP."
         }
     },
     "tt": [
