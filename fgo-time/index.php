@@ -28,7 +28,7 @@ function htmllink($path) {
     <link rel="stylesheet" href="<?php htmllink("assets/fgo-time.css");?>">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
     <script src="<?php htmllink("assets/libs.bundle.js");?>"></script>
-    <script src="<?php htmllink("assets/fgo-time.js");?>"></script>
+    <script src="<?php htmllink("assets/fgo-time.min.js");?>"></script>
 </head>
 <body>
     <header>

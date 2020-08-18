@@ -26,7 +26,7 @@ function init() {
     } else {
         settings = JSON.parse(settings);
     }
-    
+
     //Apply settings
     //Show sections
     if (settings.showEventTimers === false) {
@@ -59,15 +59,14 @@ function init() {
         $("#ap-calc-current-ap").val(settings.currAp);
     }
 
-    //setup event table
+    //run setup
     ftDataUpdate();
     if (settings.showEventTimers !== false) {
         etInterval.start();
     }
-    //setup timetable
     ftClockUpdate();
-    ftApCalcUpdate();
     ftClockInterval.start();
+    ftApCalcUpdate();
     //attach onclick functions
     $("main section > h1").on("click", sectionToggleDisplay);
     $("#ap-calc input").on("input", ftApCalcUpdate);
@@ -102,23 +101,32 @@ function sectionToggleDisplay() {
 }
 
 /*
- * EVENT TIMER FUNCTIONS
+ * DATA UPDATE FUNCTIONS
  */
 function ftDataUpdate() {
     let xh = new XMLHttpRequest(),
         url = "assets/events.php";
     xh.open("GET", url, true);
     xh.onload = function() {
-        etTableSetup(xh.responseText);
+        ftHandleDataUpdate(xh.responseText);
     }
     xh.send();
 }
-function etTableSetup(eventData) {
+function ftHandleDataUpdate(eventData) {
     if (!eventData) throw new Error("Error while retrieving Event Data");
     eventData = JSON.parse(eventData);
     eventTimer = eventData;
 
-    //insert banner images
+    etTableSetup();
+    etTimersUpdate();
+    ttSetup();
+}
+
+/*
+* EVENT TIMER FUNCTIONS
+*/
+function etTableSetup() {
+    //insert banner image
     if (eventTimer.banner !== null) {
         let src = "assets/img/" + eventTimer.banner,
             img;
@@ -155,11 +163,6 @@ function etTableSetup(eventData) {
         tr.append(td);
         $("#events table tbody").append(tr);
     }
-
-    //update Timers and return true
-    etTimersUpdate();
-    ttSetup();
-    return true;
 }
 
 function etTimersUpdate() {
