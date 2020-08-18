@@ -4,11 +4,9 @@ let naServerDST = spacetime.now('Pacific Time').isDST(),
     ftClockInterval = new interval(ftClockUpdate, "1s"),
     settings = localStorage.getItem('fgo-time-settings'),
     clockFormat = '{hour-pad}:{minute-pad}{ampm}',
-    jpToUTC = 0,//conversion offsets in minutes
-    naToUTC = 0,
-    localToUTC = 0;
-
-
+    naToUTC = 0,//conversion offsets in minutes
+    localToUTC = 0,
+    eventTimer;
 
 //init
 $(init);
@@ -19,8 +17,6 @@ function init() {
     //Apply default settings or parse existing settings
     if (settings == null) {
         settings = {
-            "showNa":true,
-            "showJp":true,
             "showEventTimers":true,
             "showTimeTable":true,
             "showApCalc":true,
@@ -30,7 +26,7 @@ function init() {
     } else {
         settings = JSON.parse(settings);
     }
-
+    
     //Apply settings
     //Show sections
     if (settings.showEventTimers === false) {
@@ -64,12 +60,12 @@ function init() {
     }
 
     //setup event table
-    if (etTableSetup() && settings.showEventTimers !== false) {
+    ftDataUpdate();
+    if (settings.showEventTimers !== false) {
         etInterval.start();
     }
     //setup timetable
     ftClockUpdate();
-    ttSetup();
     ftApCalcUpdate();
     ftClockInterval.start();
     //attach onclick functions
@@ -91,7 +87,7 @@ function sectionToggleDisplay() {
     }
     if (section.hasClass("section-hidden")) {
         if (section.attr("id") == "events") {
-            etTableSetup(true);
+            ftDataUpdate();
             etInterval.start();
         }
         section.removeClass("section-hidden");
@@ -108,92 +104,67 @@ function sectionToggleDisplay() {
 /*
  * EVENT TIMER FUNCTIONS
  */
-
-async function etTableSetup(updateData) {
-    //pull new data?
-    if (updateData === true) {
-        let newEventData = await asyncRequest("GET", "assets/events.php?json");
-        newEventData = JSON.parse(newEventData);
-        eventTimer = newEventData.eventTimer;
+function ftDataUpdate() {
+    let xh = new XMLHttpRequest(),
+        url = "assets/events.php";
+    xh.open("GET", url, true);
+    xh.onload = function() {
+        etTableSetup(xh.responseText);
     }
+    xh.send();
+}
+function etTableSetup(eventData) {
+    if (!eventData) throw new Error("Error while retrieving Event Data");
+    eventData = JSON.parse(eventData);
+    eventTimer = eventData;
 
     //insert banner images
-    if (eventTimer.NA.banner !== null) {
-        let src = "assets/img/" + eventTimer.NA.banner,
+    if (eventTimer.banner !== null) {
+        let src = "assets/img/" + eventTimer.banner,
             img;
-        if ($("#event-banner-na img").length == 0) {
+        if ($("#event-banner img").length == 0) {
             img = $("<img>");
-            $("#event-banner-na").append(img);
+            $("#event-banner").append(img);
         } else {
-            img = $("#event-banner-na img");
+            img = $("#event-banner img");
         }
         if (img.attr("src") != src) img.attr("src", src);
     } else {
-        $("#event-banner-na").empty();
-    }
-    if (eventTimer.JP.banner !== null) {
-        let src = "assets/img/" + eventTimer.JP.banner,
-            img;
-        if ($("#event-banner-jp img").length == 0) {
-            img = $("<img>");
-            $("#event-banner-jp").append(img);
-        } else {
-            img = $("#event-banner-jp img");
-        }
-        if (img.attr("src") != src) img.attr("src", src);
-    } else {
-        $("#event-banner-jp").empty();
+        $("#event-banner").empty();
     }
 
     //insert notices
-    if (eventTimer.NA.notice !== null) {
-        $("#event-notice-na").html(eventTimer.NA.notice);
+    if (eventTimer.notice !== null) {
+        $("#event-notice").html(eventTimer.notice);
     } else {
-        $("#event-notice-na").empty();
-    }
-    if (eventTimer.JP.notice !== null) {
-        $("#event-notice-jp").html(eventTimer.JP.notice);
-    } else {
-        $("#event-notice-jp").empty();
+        $("#event-notice").empty();
     }
 
     //return false if there's no timers
-    if (eventTimer.NA.timer.length < 1 && eventTimer.JP.timer.length < 1) return false;
-
-    //how many rows needed?
-    let timers = Math.max(eventTimer.NA.timer.length, eventTimer.JP.timer.length);
+    if (eventTimer.timers.length < 1) return false;
 
     //empty tbody before making new lines
     $("#events table tbody").empty();
 
     //generate tbody
-    for (let i = 0; i < timers; i++) {
+    for (let timer of eventTimer.timers) {
         let tr = $("<tr>"),
-            na = $("<td>"),
-            jp = $("<td>");
-        if (eventTimer.NA.timer[i]) {
-            na.append($("<span>").html(eventTimer.NA.timer[i].text + ": "));
-            na.append($("<span>").addClass("timer").addClass("timer-na"));
-        }
-        if (eventTimer.JP.timer[i]) {
-            jp.append($("<span>").html(eventTimer.JP.timer[i].text + ": "));
-            jp.append($("<span>").addClass("timer").addClass("timer-jp"));
-        }
-        tr.append(na).append(jp);
+            td = $("<td>");
+        td.append($("<span>").html(timer.text + ": "));
+        td.append($("<span>").addClass("timer"));
+        tr.append(td);
         $("#events table tbody").append(tr);
     }
 
     //update Timers and return true
     etTimersUpdate();
+    ttSetup();
     return true;
 }
 
 function etTimersUpdate() {
-    for (let timer in eventTimer.NA.timer) {
-        $("#events table tbody").children().eq(timer).find(".timer-na").html(etCalcTimer(eventTimer.NA.timer[timer].time));
-    }
-    for (let timer in eventTimer.JP.timer) {
-        $("#events table tbody").children().eq(timer).find(".timer-jp").html(etCalcTimer(eventTimer.JP.timer[timer].time));
+    for (let timer in eventTimer.timers) {
+        $("#events table tbody").children().eq(timer).find(".timer").html(etCalcTimer(eventTimer.timers[timer].time));
     }
 }
 
@@ -230,18 +201,14 @@ function etCalcTimer(goalTime) {
 /*
  * TIME TABLE FUNCTIONS
  */
-
 function ttSetup() {
-    //Apply toogle function
-    $("input[type='checkbox']").on("change", ttToggleDisplay);
-
     //compile events
-    let events = [].concat(tt);
+    let events = [].concat(eventTimer.timeTable);
 
     //convert times
     for (let i in events) {
         //calculate times
-        let time = (events[i].time * 60) + (events[i].server == "na" ? naToUTC : jpToUTC),
+        let time = (events[i].time * 60) + naToUTC,
             localTime = (events[i].time * 60) + localToUTC,
             h, m, timeAsString, localTimeAsString, sortTime;
         //fix if passed 0am in any direction and build time strings
@@ -267,64 +234,21 @@ function ttSetup() {
         return a.sortTime - b.sortTime;
     })
 
-    console.log(events);
+    $("#time-table table tbody").empty();
 
     //create table
     for (let event of events) {
-        let tr = $("<tr/>").attr("data-server", event.server);
+        let tr = $("<tr/>");
         tr.append($("<td/>").html(
             event.localTime
         ));
         tr.append($("<td/>").html(
-            event.serverTime.concat(" ", event.server == "na" ? (naServerDST ? "PDT" : "PST") : "JST")
-        ));
-        tr.append($("<td/>").html(
-            event.server.toUpperCase()
+            event.serverTime.concat(" ", naServerDST ? "PDT" : "PST")
         ));
         tr.append($("<td/>").html(
             event.desc
         ));
         $("#time-table table tbody").append(tr);
-    }
-
-    //update filter
-    ttUpdateFilter();
-}
-
-function ttToggleDisplay() {
-    switch(this.id) {
-        case "show-na":
-            settings.showNa = this.checked;
-            break;
-        case "show-jp":
-            settings.showJp = this.checked;
-            break;
-        default:
-            return false;
-    }
-    ttUpdateFilter();
-}
-
-function ttUpdateFilter() {
-    let times = $("#time-table table tbody").children();
-
-    for (let time of times) {
-        let server = $(time).data("server");
-        if(server === "na") {
-            if (settings.showNa) {
-                $(time).show();
-            } else {
-                $(time).hide()
-            }
-            continue;
-        }
-        if(server === "jp") {
-            if (settings.showJp) {
-                $(time).show();
-            } else {
-                $(time).hide()
-            }
-        }
     }
 }
 
@@ -336,17 +260,12 @@ function ftClockUpdate() {
         naServerOffset = spacetime.now('Pacific Time').timezone().current.offset,
         naServerTime = utcTime.clone().add(naServerOffset, 'hours'),
         naServerFormatted = naServerTime.format(clockFormat).toUpperCase(),
-        jpServerOffset = spacetime.now('Asia/Tokyo').timezone().current.offset,
-        jpServerTime = utcTime.clone().add(jpServerOffset, 'hours'),
-        jpServerFormatted = jpServerTime.format(clockFormat).toUpperCase();
     //update globals conversion offsets
-    jpToUTC = jpServerOffset * 60;
     naToUTC = naServerOffset * 60;
     localToUTC = localOffset * (-1);
 
     $("#clock-local > h2").html(localFormatted);
     $("#clock-na > h2").html(naServerFormatted);
-    $("#clock-jp > h2").html(jpServerFormatted);
 }
 
 /*
@@ -466,75 +385,6 @@ function openSettingsMenu() {
         div.find("#event-timer-format-colons").prop("checked", true);
     } else {
         div.find("#event-timer-format-units").prop("checked", true);
-    }
-    modal.append(div);
-
-    //Section: Time Table
-    modal.append($("<h2>").html("Time Table"));
-
-    //Show NA Setting
-    modal.append($("<div/>").css({"margin": "0.5em 0"}).html("Show NA Times:"))
-    div = $("<div/>").addClass("radio-wrapper");
-    //Option: Yes
-    div.append($("<input/>").attr({
-        "type": "radio",
-        "name": "settings-show-na-times",
-        "id": "show-na-times-yes"
-    })).append($("<label/>").html("Yes").attr({
-        "for": "show-na-times-yes"
-    }).on("click", function(){
-        settings.showNa = true;
-        ttUpdateFilter();
-    }));
-    //Option: No
-    div.append($("<input/>").attr({
-        "type": "radio",
-        "name": "settings-show-na-times",
-        "id": "show-na-times-no"
-    })).append($("<label/>").html("No").attr({
-        "for": "show-na-times-no"
-    }).on("click", function(){
-        settings.showNa = false;
-        ttUpdateFilter();
-    }));
-    //default
-    if (settings.showNa) {
-        div.find("#show-na-times-yes").prop("checked", true);
-    } else {
-        div.find("#show-na-times-no").prop("checked", true);
-    }
-    modal.append(div);
-
-    //Show JP Setting
-    modal.append($("<div/>").css({"margin": "0.5em 0"}).html("Show JP Times:"))
-    div = $("<div/>").addClass("radio-wrapper");
-    //Option: Yes
-    div.append($("<input/>").attr({
-        "type": "radio",
-        "name": "settings-show-jp-times",
-        "id": "show-jp-times-yes"
-    })).append($("<label/>").html("Yes").attr({
-        "for": "show-jp-times-yes"
-    }).on("click", function(){
-        settings.showJp = true;
-        ttUpdateFilter();
-    }));
-    //Option: No
-    div.append($("<input/>").attr({
-        "type": "radio",
-        "name": "settings-show-jp-times",
-        "id": "show-jp-times-no"
-    })).append($("<label/>").html("No").attr({
-        "for": "show-jp-times-no"
-    }).on("click", function(){
-        settings.showJp = false;
-        ttUpdateFilter();
-    }));
-    //default
-    if (settings.showJp) {
-        div.find("#show-jp-times-yes").prop("checked", true);
-    } else {
-        div.find("#show-jp-times-no").prop("checked", true);
     }
     modal.append(div);
 

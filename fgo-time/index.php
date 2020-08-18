@@ -27,9 +27,8 @@ function htmllink($path) {
 
     <link rel="stylesheet" href="<?php htmllink("assets/fgo-time.css");?>">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Noto+Sans&family=Overpass+Mono:wght@300&display=swap" rel="stylesheet">
-    <script src="assets/events.php?js&_=<?php echo filemtime("assets/events.json");?>"></script>
     <script src="<?php htmllink("assets/libs.bundle.js");?>"></script>
-    <script src="<?php htmllink("assets/fgo-time.min.js");?>"></script>
+    <script src="<?php htmllink("assets/fgo-time.js");?>"></script>
 </head>
 <body>
     <header>
@@ -50,10 +49,6 @@ function htmllink($path) {
                 <h1>NA Server</h1>
                 <h2>00:00AM</h2>
             </div>
-            <div class="clock" id="clock-jp">
-                <h1>JP Server</h1>
-                <h2>00:00AM</h2>
-            </div>
         </div>
         <section id="events" data-name="EventTimers">
             <h1>Events</h1>
@@ -62,19 +57,16 @@ function htmllink($path) {
                     <thead>
                         <tr>
                             <th>NA Server</th>
-                            <th>JP Server</th>
                         </tr>
                         <tr>
-                            <td id="event-banner-na"></td>
-                            <td id="event-banner-jp"></td>
+                            <td id="event-banner"></td>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td id="event-notice-na"></td>
-                            <td id="event-notice-jp"></td>
+                            <td id="event-notice"></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -89,14 +81,12 @@ function htmllink($path) {
                         <tr>
                             <th>Local Time</th>
                             <th>Server Time</th>
-                            <th>Server</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
-                <p>Note (for JP): Due to a bug the Free 10x Friend Point Gacha only updates at midnight device time. This means it can either not show up or get stuck, based on if you roll before or after reset. Therefore it is recommended to roll between midnight and reset if you are not in the JST timezone.</p>
             </div>
         </section>
         <section id="ap-calc" data-name="ApCalc">
@@ -125,24 +115,23 @@ function htmllink($path) {
                 <table>
                     <tr>
                         <th>Resources</th>
-                        <th>Guides &amp; Wikis</th>
+                        <th>Wikis</th>
                     </tr>
                     <tr>
                         <td>
                             <ul>
+                                <li><a href="https://www.kscopedia.net/" titles="Lord Ashura's Event Guides">Kscopedia</a></li>
                                 <li><a href="https://apps.atlasacademy.io/drop-lookup/#/" title="FGO Dropsheet Lookup Tool">fgo-lookup</a></li>
-                                <li><a href="https://rayshift.io/" title="Friend ID Lookup and Raid Tracking">Rayshift.io</a></li>
                                 <li><a href="https://apps.atlasacademy.io/drop-serializer/" title="Submission form for community droprate data">Drop Serializer</a></li>
                                 <li><a href="https://maketakunai.github.io/">maketakunai's Damage Calculator</a></li>
                             </ul>
                         </td>
                         <td>
                             <ul>
-                                <li><a href="https://www.kscopedia.net/" titles="Lord Ashura's Event Guides">Kscopedia</a></li>
+                                <li><a href="https://apps.atlasacademy.io/db/#/">Atlas Academy DB</a></li>
                                 <li><a href="https://fategrandorder.fandom.com/wiki/Fate/Grand_Order_Wikia">Fandom Wiki</a></li>
                                 <li><a href="https://grandorder.wiki/Main_Page">Grandorder.wiki</a></li>
                                 <li><a href="https://gamepress.gg/grandorder/">Gamepress</a></li>
-                                <li><a href="https://fate-go.cirnopedia.org/">Cirnopedia</a></li>
                             </ul>
                         </td>
                     </tr>
