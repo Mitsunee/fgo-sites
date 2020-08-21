@@ -1,9 +1,12 @@
 {
-    "banner": "nasummer3.png",
+    "banner": "11mdls.png",
     "timers": [
         {
             "time":1598155140,
             "text":"Summer 3 Ends"
+        },{
+            "time":1598256000,
+            "text":"11M Downloads Campaign Begins"
         }
     ],
     "notice":"Dead Week with Download Campaign expected next.",
