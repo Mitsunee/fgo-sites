@@ -1,25 +1,22 @@
 {
     "eventTimer": {
         "NA":{
-            "banner": "11mdls.png",
+            "banner": "f0.png",
             "timer": [
                 {
-                    "time":1598155140,
-                    "text":"Summer 3 Ends"
-                },{
-                    "time":1598256000,
-                    "text":"11M Downloads Campaign Begins"
+                    "time":1598860800,
+                    "text":"Fate/Accel Zero Rerun Begins"
+                    },{
+                    "time":1599451140,
+                    "text":"11M Downloads Campaign Ends"
                 }
             ],
-            "notice":"Dead Week with Download Campaign expected next."
+            "notice":"Next Event: Fate/Accel Zero Rerun, then Gilfest 2020."
         },
         "JP":{
             "banner":"jpsummer5.png",
             "timer": [
                 {
-                    "time":1598241540,
-                    "text":"Anniversary Campaign Ends"
-                },{
                     "time":1598266800,
                     "text":"Summer 5 Timelock?"
                 },{
@@ -27,7 +24,7 @@
                     "text":"Summer 5 Ends"
                 }
             ],
-            "notice":"Due to Aniplex' policy changes I will be quitting JP FGO and thus not updating the JP section anymore. I will keep it up until Summer 5 ends. The upcoming Account Manager will ofc support JP."
+            "notice":"The JP section of this site will be discontinued after Summer 5. The upcoming Account Manager will still support JP."
         }
     },
     "tt": [
