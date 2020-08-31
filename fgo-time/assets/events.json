@@ -4,14 +4,20 @@
             "banner": "f0.png",
             "timer": [
                 {
-                    "time":1598860800,
-                    "text":"Fate/Accel Zero Rerun Begins"
-                    },{
+                    "time":1599364800,
+                    "text":"Waver Solo Rateup"
+                },{
                     "time":1599451140,
                     "text":"11M Downloads Campaign Ends"
+                },{
+                    "time":1599451200,
+                    "text":"Fate/Accel Zero Timelock"
+                },{
+                    "time":1600055940,
+                    "text":"Fate/Accel Zero Rerun Ends"
                 }
             ],
-            "notice":"Next Event: Fate/Accel Zero Rerun, then Gilfest 2020."
+            "notice":"News post says there will be a timelock, but doesn't mention when."
         },
         "JP":{
             "banner":"jpsummer5.png",
