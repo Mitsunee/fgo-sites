@@ -123,7 +123,7 @@ main section>h1:hover::after {
  */
 #events table {
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px;
     margin: auto;
     border-collapse: collapse;
 }
@@ -158,7 +158,6 @@ main section>h1:hover::after {
 #time-table table tbody tr>td:not(:last-of-type) {text-align: center}
 #time-table table tbody tr>td:nth-child(1) {width: 89px}
 #time-table table tbody tr>td:nth-child(2) {width: 99px}
-#time-table table tbody tr>td:nth-child(3) {width: 55px}
 
 /*
  * AP CALC

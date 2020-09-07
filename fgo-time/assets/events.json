@@ -1,47 +1,18 @@
 {
-    "eventTimer": {
-        "NA":{
-            "banner": "f0.png",
-            "timer": [
-                {
-                    "time":1599364800,
-                    "text":"Waver Solo Rateup"
-                },{
-                    "time":1599451140,
-                    "text":"11M Downloads Campaign Ends"
-                },{
-                    "time":1599451200,
-                    "text":"Fate/Accel Zero Timelock"
-                },{
-                    "time":1600055940,
-                    "text":"Fate/Accel Zero Rerun Ends"
-                }
-            ],
-            "notice":"News post says there will be a timelock, but doesn't mention when."
-        },
-        "JP":{
-            "banner":"jpsummer5.png",
-            "timer": [
-                {
-                    "time":1598266800,
-                    "text":"Summer 5 Timelock?"
-                },{
-                    "time":1599451140,
-                    "text":"Summer 5 Ends"
-                }
-            ],
-            "notice":"The JP section of this site will be discontinued after Summer 5. The upcoming Account Manager will still support JP."
+    "banner": "f0.png",
+    "timers": [
+        {
+            "time":1600055940,
+            "text":"Fate/Accel Zero Rerun Ends"
+        },{
+            "time":1600660740,
+            "text":"Shuten Rankup Campaign Ends"
         }
-    },
-    "tt": [
-        {"time": 8, "desc": "Event Start Time", "server":"na"},
-        {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"na"},
-        {"time": 4, "desc": "Daily Login Reset and Event End Time", "server":"na"},
-        {"time": 15, "desc": "Daily Quest Rotation and FP Gacha Reset", "server":"jp"},
-        {"time": 19, "desc": "Daily Login Reset", "server":"jp"},
-        {"time": 4, "desc": "Maintenance Start Time", "server":"jp"},
-        {"time": 9, "desc": "Maintenance End Time", "server":"jp"},
-        {"time": 1, "desc": "Summer 5 Daytime", "server":"jp"},
-        {"time": 11, "desc": "Summer 5 Nighttime", "server":"jp"}
+    ],
+    "notice":"Next Event: Gilfest 2020",
+    "timeTable": [
+        {"time": 8, "desc": "Event Start Time"},
+        {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset"},
+        {"time": 4, "desc": "Daily Login Reset and Event End Time"}
     ]
 }

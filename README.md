@@ -17,6 +17,9 @@ Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
 
 # Changelog:
 
+- 1.3
+    - ended support for JP server
+    - removed time table filters
 - 1.2
     - added settings menu
     - added setting for timer formats
