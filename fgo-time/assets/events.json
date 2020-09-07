@@ -1,15 +1,15 @@
 {
-    "banner": "11mdls.png",
+    "banner": "f0.png",
     "timers": [
         {
-            "time":1598155140,
-            "text":"Summer 3 Ends"
+            "time":1600055940,
+            "text":"Fate/Accel Zero Rerun Ends"
         },{
-            "time":1598256000,
-            "text":"11M Downloads Campaign Begins"
+            "time":1600660740,
+            "text":"Shuten Rankup Campaign Ends"
         }
     ],
-    "notice":"Dead Week with Download Campaign expected next.",
+    "notice":"Next Event: Gilfest 2020",
     "timeTable": [
         {"time": 8, "desc": "Event Start Time"},
         {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset"},
