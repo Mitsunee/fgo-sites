@@ -119,6 +119,7 @@ function ftHandleDataUpdate(eventData) {
 
     etTableSetup();
     etTimersUpdate();
+    ftClockUpdate();
     ttSetup();
 }
 
@@ -209,10 +210,10 @@ function ttSetup() {
     let events = [].concat(eventTimer.timeTable);
 
     //convert times
-    for (let i in events) {
+    for (let event of events) {
         //calculate times
-        let time = (events[i].time * 60) + naToUTC,
-            localTime = (events[i].time * 60) + localToUTC,
+        let time = (event.time * 60) + naToUTC,
+            localTime = (event.time * 60) + localToUTC,
             h, m, timeAsString, localTimeAsString, sortTime;
         //fix if passed 0am in any direction and build time strings
         if (time < 0) time += 1440;
@@ -227,9 +228,9 @@ function ttSetup() {
         localTimeAsString = (h < 10 ? "0" : "") + String(h) + ":" + (m < 10 ? "0": "") + String(m);
         sortTime = (h * 100) + m;
         //add to Array
-        events[i].serverTime = timeAsString;
-        events[i].localTime = localTimeAsString;
-        events[i].sortTime = Number(h+m);
+        event.serverTime = timeAsString;
+        event.localTime = localTimeAsString;
+        event.sortTime = Number(h+m);
     }
 
     //sort by local Time
@@ -262,7 +263,7 @@ function ftClockUpdate() {
         utcTime = localTime.clone().add(localOffset, 'minutes'),
         naServerOffset = spacetime.now('Pacific Time').timezone().current.offset,
         naServerTime = utcTime.clone().add(naServerOffset, 'hours'),
-        naServerFormatted = naServerTime.format(clockFormat).toUpperCase(),
+        naServerFormatted = naServerTime.format(clockFormat).toUpperCase();
     //update globals conversion offsets
     naToUTC = naServerOffset * 60;
     localToUTC = localOffset * (-1);
