@@ -1,15 +1,27 @@
 {
-    "banner": "f0.png",
+    "banner": "gilfes2020.png",
     "timers": [
         {
-            "time":1600055940,
-            "text":"Fate/Accel Zero Rerun Ends"
+            "time":1600070400,
+            "text":"Gilfest Qualifiers (R1) Begins"
+            },{
+            "time":1600401600,
+            "text":"Gilfest Main Event (R2) Begins"
+        },{
+            "time":1600833600,
+            "text":"Gilfest Finals (R3) Begins"
         },{
             "time":1600660740,
             "text":"Shuten Rankup Campaign Ends"
+        },{
+            "time":1601438340,
+            "text":"Gilfest 2020 Ends"
+        },{
+            "time":1602043140,
+            "text":"Deadline for Box Opening"
         }
     ],
-    "notice":"Next Event: Gilfest 2020",
+    "notice":"CQs unlock at 21PM PDT on most days",
     "timeTable": [
         {"time": 8, "desc": "Event Start Time"},
         {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset"},
