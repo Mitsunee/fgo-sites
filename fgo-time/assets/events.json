@@ -1,18 +1,27 @@
 {
-    "banner": "gilfes2020.png",
+    "banner": "halloween3re.png",
     "timers": [
         {
-            "time":1601438340,
-            "text":"Gilfest 2020 Ends"
-        },{
             "time":1601452800,
             "text":"Halloween3 Rerun Begins"
         },{
+            "time":1601697600,
+            "text":"Halloween3 Main Quest 2nd Half Opens"
+        },{
             "time":1602043140,
-            "text":"Deadline for Box Opening"
+            "text":"Deadline for Lotto Box Opening"
+        },{
+            "time":1602043200,
+            "text":"Halloween3 Extra Quests Opens"
+        },{
+            "time":1602043200,
+            "text":"1/2 AP Main Quest Begins"
+        },{
+            "time":1602647940,
+            "text":"Halloween3 Ends"
         }
     ],
-    "notice":"Next Event: Himeji Castle War (Halloween3) Rerun",
+    "notice":"Next Event: Interlude Campaign, then Halloween4",
     "timeTable": [
         {"time": 8, "desc": "Event Start Time"},
         {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset"},
