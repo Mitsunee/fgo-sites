@@ -1,27 +1,24 @@
 {
-    "banner": "halloween3re.png",
+    "banner": "halloween4og2.png",
     "timers": [
         {
-            "time":1601452800,
-            "text":"Halloween3 Rerun Begins"
+            "time":1603079940,
+            "text":"1/2 AP Embers Ends"
         },{
-            "time":1601697600,
-            "text":"Halloween3 Main Quest 2nd Half Opens"
+            "time":1603094400,
+            "text":"Oniland Begins"
         },{
-            "time":1602043140,
-            "text":"Deadline for Lotto Box Opening"
+            "time":1603553400,
+            "text":"Oniland Final Timelock"
         },{
-            "time":1602043200,
-            "text":"Halloween3 Extra Quests Opens"
+            "time":1603598340,
+            "text":"1/2 AP Main Quest Ends"
         },{
-            "time":1602043200,
-            "text":"1/2 AP Main Quest Begins"
-        },{
-            "time":1602647940,
-            "text":"Halloween3 Ends"
+            "time":1604289540,
+            "text":"Oniland Ends"
         }
     ],
-    "notice":"Next Event: Interlude Campaign, then Halloween4",
+    "notice":"Oniland Timelocks daily at 08:30 PDT<br>Interlude Campaign may be moved to after Oniland",
     "timeTable": [
         {"time": 8, "desc": "Event Start Time"},
         {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset"},
