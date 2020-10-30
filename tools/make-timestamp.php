@@ -51,7 +51,7 @@ foreach ($argv as $a) {
                 $startedString = true;
                 break;
             default:
-                continue;
+                continue 2;
                 break;
         }
     }

@@ -1,24 +1,18 @@
 {
-    "banner": "halloween4og2.png",
+    "banner": "banner_20201031_mhtso.png",
     "timers": [
         {
-            "time":1603079940,
-            "text":"1/2 AP Embers Ends"
-        },{
-            "time":1603094400,
-            "text":"Oniland Begins"
-        },{
-            "time":1603553400,
-            "text":"Oniland Final Timelock"
-        },{
-            "time":1603598340,
-            "text":"1/2 AP Main Quest Ends"
-        },{
             "time":1604289540,
             "text":"Oniland Ends"
+        },{
+            "time":1604289600,
+            "text":"Interlude Campaign 7 Begins"
+        },{
+            "time":1604894340,
+            "text":"Interlude Campaign 7 Ends"
         }
     ],
-    "notice":"Oniland Timelocks daily at 08:30 PDT<br>Interlude Campaign may be moved to after Oniland",
+    "notice":"Events in November: DL Campaign (Salem Banner, SR Ticket), Xmas 2019 Rerun, potentially LB3",
     "timeTable": [
         {"time": 8, "desc": "Event Start Time"},
         {"time": 0, "desc": "Daily Quest Rotation and FP Gacha Reset"},
