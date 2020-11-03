@@ -2,21 +2,23 @@
 
 # FGO Time
 
-Current Server Times for Fate/Grand Order. https://www.mitsunee.com/fgo-time
+Event Timers for the NA version of Fate/Grand Order. https://www.mitsunee.com/fgo/time
+
+FGO Time moved to a private repository. This repository will remain open for bug reports.
 
 ## Current status:
 
-![Version](https://img.shields.io/badge/stable-1.2-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
-
+![Version](https://img.shields.io/badge/stable-2.0-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
 
 # Built using:
 
 - [jquery](https://jquery.com/)
-- [EnhancedJS](https://github.com/Mitsunee/EnhancedJS)
 - [Spacetime](https://github.com/spencermountain/spacetime)
 
 # Changelog:
 
+- 2.0
+    - rewrite
 - 1.3.1
     - hotfix timetable inaccuracy
 - 1.3
