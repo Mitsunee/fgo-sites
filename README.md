@@ -1,4 +1,4 @@
-<img src="https://github.com/Mitsunee/fgo-time/blob/master/fgo-time/assets/icon.png" align="right">
+<img src="https://github.com/Mitsunee/fgo-time/blob/master/fgo-time/assets/img/icon.png" align="right">
 
 # FGO Time
 
@@ -8,7 +8,7 @@ FGO Time moved to a private repository. This repository will remain open for bug
 
 ## Current status:
 
-![Version](https://img.shields.io/badge/stable-2.0-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
+![Version](https://img.shields.io/badge/stable-2.0.1-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
 
 # Built using:
 
@@ -17,6 +17,8 @@ FGO Time moved to a private repository. This repository will remain open for bug
 
 # Changelog:
 
+- 2.0.1 
+    - fix notice not showing up
 - 2.0
     - rewrite
 - 1.3.1
