@@ -1,4 +1,4 @@
-<img src="https://github.com/Mitsunee/fgo-time/blob/master/fgo-time/assets/img/icon.png" align="right">
+<img src="https://www.mitsunee.com/fgo/assets/icons/fgo-time.png" align="right">
 
 # FGO Time
 
@@ -17,6 +17,8 @@ FGO Time moved to a private repository. This repository will remain open for bug
 
 # Changelog:
 
+- 2.0.2
+    - added noscript warning
 - 2.0.1 
     - fix notice not showing up
 - 2.0
