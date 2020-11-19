@@ -17,6 +17,11 @@ FGO Time moved to a private repository. This repository will remain open for bug
 
 # Changelog:
 
+- 2.0.4
+    - added 'at' column and column header to events-table
+    - added hover effect to events-table
+- 2.0.3
+    - added navigation bar and nice loading animation
 - 2.0.2
     - added noscript warning
 - 2.0.1 
