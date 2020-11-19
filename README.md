@@ -8,7 +8,7 @@ FGO Time moved to a private repository. This repository will remain open for bug
 
 ## Current status:
 
-![Version](https://img.shields.io/badge/stable-2.0.1-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
+![Version](https://img.shields.io/badge/stable-2.0.4-green.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/Mitsunee/fgo-time.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/Mitsunee/fgo-time.svg)
 
 # Built using:
 
