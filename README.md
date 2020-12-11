@@ -17,6 +17,10 @@ FGO Time moved to a private repository. This repository will remain open for bug
 
 # Changelog:
 
+- 2.2.2
+    - prevent caching of event data
+- 2.2.1
+    - Text-changes
 - 2.2.0
     - added Da Vinci Shop Resets
     - modernized data fetching in setup
