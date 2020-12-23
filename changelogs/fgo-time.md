@@ -1,0 +1,29 @@
+# FGO Time Changelog:
+- 2.3
+	- News Modals
+- 2.2.2
+    - prevent caching of event data
+- 2.2.1
+    - Text-changes
+- 2.2.0
+    - added Da Vinci Shop Resets
+    - modernized data fetching in setup
+- 2.1.0
+    - added Time Converter
+- 2.0.5
+    - internal reorganization and cleanup
+- 2.0.4
+    - added 'at' column and column header to events-table
+    - added hover effect to events-table
+- 2.0.3
+    - added navigation bar and nice loading animation
+- 2.0.2
+    - added noscript warning
+- 2.0.1 
+    - fix notice not showing up
+- 2.0
+    - rewrite
+- 1.3
+    - ended support for JP server
+- 1.0.1 to 1.2
+    - [Removed]
