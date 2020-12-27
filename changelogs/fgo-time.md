@@ -1,4 +1,6 @@
 # FGO Time Changelog:
+- 2.3.1
+	- add diff to converter
 - 2.3
 	- News Modals
 - 2.2.2
@@ -19,7 +21,7 @@
     - added navigation bar and nice loading animation
 - 2.0.2
     - added noscript warning
-- 2.0.1 
+- 2.0.1
     - fix notice not showing up
 - 2.0
     - rewrite
