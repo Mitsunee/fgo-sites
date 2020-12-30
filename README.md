@@ -25,3 +25,12 @@ https://www.mitsunee.com/fgo/exp/ce/
 AP Calculator for Fate/Grand Order NA
 
 https://www.mitsunee.com/fgo/ap/
+
+<img src="https://www.mitsunee.com/fgo/assets/icons/fgo-upgrades.png" align="right">
+
+# FGO Upgrades
+![Version](https://img.shields.io/badge/stable-1.0-green.svg) [Changelog](changelogs/fgo-upgrades.md)
+
+List of future NP and Skill Upgrades for the NA version of Fate/Grand Order
+
+https://www.mitsunee.com/fgo/upgrades/
