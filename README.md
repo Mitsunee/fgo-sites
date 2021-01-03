@@ -20,7 +20,7 @@ https://www.mitsunee.com/fgo/exp/ce/
 <img src="https://www.mitsunee.com/fgo/assets/icons/fgo-ap.png" align="right">
 
 # FGO AP
-![Version](https://img.shields.io/badge/stable-1.0-green.svg) [Changelog](changelogs/fgo-ap.md)
+![Version](https://img.shields.io/badge/stable-1.0.2-green.svg) [Changelog](changelogs/fgo-ap.md)
 
 AP Calculator for Fate/Grand Order NA
 
