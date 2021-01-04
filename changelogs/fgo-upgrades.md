@@ -1,4 +1,7 @@
 # FGO Upgrades Changelog:
+- 1.1.2
+    - Fix Upcoming Strengthening Campaigns not getting printed fully. (*Note:* Due to how I made this work it currently also prints Nero Claudius' Rank Up from CCC Rerun. For JP this was available on the day after Hans' Rank Up, thus the script assumes Nero's to be part of the Strengthening Campaign)
+    - Always show at least 5 items regardless of if they are part of the same Campaign
 - 1.1.1
     - Added SQ Interludes (this also fixes the oversight where the Future Interludes number was wrong/incomplete)
 - 1.1
