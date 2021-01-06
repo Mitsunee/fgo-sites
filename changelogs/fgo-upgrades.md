@@ -1,4 +1,7 @@
 # FGO Upgrades Changelog:
+- 1.1.3
+    - Fixed JP-only Servant Links
+    - Add Progress-bar for full list print
 - 1.1.2
     - Fix Upcoming Strengthening Campaigns not getting printed fully. (*Note:* Due to how I made this work it currently also prints Nero Claudius' Rank Up from CCC Rerun. For JP this was available on the day after Hans' Rank Up, thus the script assumes Nero's to be part of the Strengthening Campaign)
     - Always show at least 5 items regardless of if they are part of the same Campaign
