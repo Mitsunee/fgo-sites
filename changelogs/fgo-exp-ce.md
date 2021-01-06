@@ -1,4 +1,10 @@
 # FGO Exp CE Changelog:
+- 1.0.3
+    - Fixed oversight in target CE exp calculation when limitbreaking
+    - You can now simulate limitbreaking max leveled CEs such as lvl 20 Kaleidoscope at Limit Break 0 to Limit Break 1
+    - Fixed a missing function error in Fodder Selection function
+- 1.0.2
+    - internal changes
 - 1.0.1
     - made input validation less forceful
 - 1.0

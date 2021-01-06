@@ -11,7 +11,7 @@ https://www.mitsunee.com/fgo/time
 <img src="https://www.mitsunee.com/fgo/assets/icons/fgo-exp.png" align="right">
 
 # FGO Exp - Craft Essence
-![Version](https://img.shields.io/badge/stable-1.1-green.svg) [Changelog](changelogs/fgo-exp-ce.md)
+![Version](https://img.shields.io/badge/stable-1.0.3-green.svg) [Changelog](changelogs/fgo-exp-ce.md)
 
 CE EXP Calculator for Fate/Grand Order NA
 
