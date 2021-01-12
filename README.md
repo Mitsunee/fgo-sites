@@ -2,7 +2,7 @@
 <img src="https://www.mitsunee.com/fgo/assets/icons/fgo-time.png" align="right">
 
 # FGO Time
-![Version](https://img.shields.io/badge/stable-2.3.1-green.svg) [Changelog](changelogs/fgo-time.md)
+![Version](https://img.shields.io/badge/stable-2.4.0-green.svg) [Changelog](changelogs/fgo-time.md)
 
 Event Timers for the NA version of Fate/Grand Order.
 

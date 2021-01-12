@@ -1,4 +1,6 @@
 # FGO Time Changelog:
+- 2.4.0
+	- added Login Milestone Calculator
 - 2.3.1
 	- add diff to converter
 - 2.3
